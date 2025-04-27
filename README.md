@@ -87,7 +87,9 @@ Series 1 will follow Blinn-Phong illumination
 
 Series 2 will look at full BRDFs including Cook-Torrance and PBR workflows. These are more complex and require a lot of math to understand, but they provide much better results for realistic lighting in games and applications.
 
-Series 3 is looking at terrain concepts, including billboard geometry shaders, and LOD.
+Series 3 is looking at terrain concepts, including billboard geometry shaders, Sky boxes, and LOD.
+
+Series 4 is a collection of post-processing and other techniques to enhance the visual fidelity.
 
 ### py_1.a_blinn-phong - Blinn-Phong
 
@@ -124,7 +126,7 @@ This demo creates a cube mesh from scratch, reuses it as bound to a vertex array
 ![Screenshots](./screenshots/mgl_blinn-phong_2.png)
 _Global illumination on, local illumination on modelled as point lights, one blue and one green._
 
-In some approaches that you see online, the light has a set of properties that include the albedo, diffuse, and specular value. The albedo is the base color of the light, the diffuse is how rough or smooth it is, the specular is how much direct reflection there is. However, I believe this is better to associate the albedo, roughness, and metallic values with the objects and not the lights. So instead I have created the lights to have their own strength and color values.
+In some approaches that you see online, the light has a set of properties that include the albedo, diffuse, and specular value. The albedo is the base color of the light, the diffuse is how rough or smooth it is, the specular is how much direct reflection there is. However, I believe this is better to associate the albedo, diffuse, and specular values with the objects and not the lights. So instead I have created the lights to have their own strength and color values.
 
 This arrangement makes it possible to create multiple objects later on with their own properties; which is a good precursor to PBR and the Cook-Torrance brdf. So in my demo look for the attenuation calculation in my `default.frag`, and the resulting radiance value; his will be multiplied into the ambient + diffuse + specular result.
 
@@ -147,15 +149,25 @@ In 1982, Robert Cook and Kenneth Torrance published a reflectance model that is 
 
 ![Screenshots](./screenshots/mgl_cook-torrance_1.png)
 
-For more realism in the model, the computation of the BRDF is more complex. Therefore more costly to compute. The Cook-Torrance model assumes a surface is composed of tiny micro-facets, each acting as a perfect mirror reflecting light. These micro-facets vary in orientation, producing a range of reflection behaviors from diffuse (rough surfaces) to specular (smooth surfaces).
+For more realism in the model, the computation of the BRDF is more complex. The Cook-Torrance model assumes a surface is composed of tiny micro-facets, each acting as a perfect mirror reflecting light. These micro-facets vary in orientation, producing a range of reflection behaviors from diffuse (rough surfaces) to specular (smooth surfaces).
 
 The model is physically grounded, adhering to principles like energy conservation and reciprocity, and it produces realistic highlights and material appearances under different lighting conditions.
 
 ![Screenshots](./screenshots/mgl_cook-torrance_2.png)
 
+I continue the format presented in the Blinn-Phone demo, where we have global illumination with cast shadows, a series of local point lights, and a flash light modelled as a spot light from the camera direction:
+
+-   Press `f` to toggle the flash light.
+
+-   Press `F2` to toggle the global light source.
+
+-   Press `F4` to toggle local light sources (two local point lights in the scene, one green and one blue).
+
+-   Press `F5` to toggle local texture blend.
+
 ![Screenshots](./screenshots/mgl_cook-torrance_3.png)
 
-The Cook-Torrance BRDF combines:
+In summary the Cook-Torrance BRDF combines:
 
 -   A diffuse component for scattered, non-directional reflection (e.g., matte surfaces).
 
