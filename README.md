@@ -2,6 +2,8 @@
 
 _An exploration of 3D rendering in OpenGL and Vulkan APIs by Charlie (Nokota Mustang)_
 
+👀 Be an early user on my discord server for discussions on OpenGL, Vulkan, 2D/3D Graphics, and game development: <https://discord.gg/Bkhpm8QQ>.
+
 Computer graphics is a vast field, and I am interested in learning more about the rendering process and the mathematics behind it. Having a good grasp of realtime graphics, data structures, and algorithms is essential for game development, simulations, and visualizations in 2D or 3D.
 
 `OpenGL` (Open Graphics Library) and Vulkan are both industry-standard APIs (Application Programming Interfaces) used for rendering 2D and 3D graphics in applications such as games, virtual reality experiences, and scientific simulations. OpenGL has evolved from an older graphics API called NeHeGL to the current state with versions like OpenGL 4.6, seemingly the last iteration of the API since Vulkan has been standardized.
