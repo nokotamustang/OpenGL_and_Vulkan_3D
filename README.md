@@ -102,19 +102,6 @@ Blinn's model is an approximate of Phong shading, which had an internal issue re
 ![Screenshots](./screenshots/mgl_blinn-phong_1.png)
 _With only global lights on, the shadows are pitch black. The global light, at this angle of the camera, is producing specular reflections on the cubes; the metallic textured cube has a higher specular level than the wooden ones and thus produces more of the effect._
 
-Some more keys added to the base application:
-
--   Press `f` to toggle the flash light.
-
--   Press `F2` to toggle the global light source.
-
--   Press `F4` to toggle local light sources (two local point lights in the scene, one green and one blue).
-
--   Press `F5` to toggle local texture blend.
-
-![Screenshots](./screenshots/mgl_blinn-phong_4.png)
-_With only local point lights on, the effect of those lights are stronger on the scene; however, they have strength attenuation so do not produce a strong effect on the materials without increasing the light strengths._
-
 This demo creates a cube mesh from scratch, reuses it as bound to a vertex array object with a vert and frag shader program. I combined multiple rendering techniques in this example:
 
 -   I apply the illumination model described by the _Blinn-Phong_ model from 1975.
@@ -125,8 +112,8 @@ This demo creates a cube mesh from scratch, reuses it as bound to a vertex array
 
 -   Organized parameters where the lights have strength and color, and the cube objects have a material definition of albedo, diffuse, and specular properties, in addition to a a texture map.
 
-![Screenshots](./screenshots/mgl_blinn-phong_2.png)
-_Global illumination on, local illumination on modelled as point lights, one blue and one green._
+![Screenshots](./screenshots/mgl_blinn-phong_4.png)
+_With only local point lights on, the effect of those lights are stronger on the scene; however, they have strength attenuation so do not produce a strong effect on the materials without increasing the light strengths._
 
 In some approaches that you see online, the light has a set of properties that include the albedo, diffuse, and specular value. The albedo is the base color of the light, the diffuse is how rough or smooth it is, the specular is how much direct reflection there is. However, I believe this is better to associate the albedo, diffuse, and specular values with the objects and not the lights. So instead I have created the lights to have their own strength and color values.
 
@@ -136,6 +123,9 @@ If you change the light strength to 0, you will see the resulting illumination i
 
 This example adds texture mapping to the object mesh of each cube. The texture is a 2D image that is mapped to the surface of the cube using texture coordinates. The texture coordinates are stored in the VBO along with the vertices of the cube. I also added multiple-local lights to the scene and adapt the fragment shader to composite all of this together.
 
+![Screenshots](./screenshots/mgl_blinn-phong_2.png)
+_Global illumination on, local illumination on modelled as point lights, one blue and one green._
+
 A shadow map casting system is also added for the global light. A shadow map is a depth buffer that is rendered from the perspective of the light source. The depth buffer is then used to determine if a pixel on the cube is in shadow or not. If the pixel is in shadow, it is darkened; if it is not in shadow, it is illuminated.
 
 A two pass rendering system is used to create shadows in the scene. The first pass renders the scene from the perspective of the light source to create a shadow map. The second pass renders the scene from the perspective of the camera and uses the shadow map to determine if a pixel is in shadow or not. This is a standard approach to rending shadows: <https://www.opengl-tutorial.org/intermediate-tutorials/tutorial-16-shadow-mapping/>.
@@ -144,6 +134,19 @@ I have included several local point light sources in this demo. The point lights
 
 ![Screenshots](./screenshots/mgl_blinn-phong_3.png)
 _With the global and points light off, I turn on the flash light is on which is modelled as a spot-light._
+
+Controls used:
+
+-   `ESC` - Exit
+-   `F1` - Toggle Pause time
+-   `F3` - Toggle view of wire-frames
+-   `F11` - Toggle full screen
+-   `WASD` - [Forward, Left, Backward, Right] flying camera movement
+-   `Mouse Move` - camera look movement
+-   Press `f` to toggle the flash light.
+-   Press `F2` to toggle the global light source.
+-   Press `F4` to toggle local light sources (two local point lights in the scene, one green and one blue).
+-   Press `F5` to toggle local texture blend.
 
 ### py_2.a_cook-torrance - Cook-Torrance
 
@@ -157,15 +160,7 @@ The model is physically grounded, adhering to principles like energy conservatio
 
 ![Screenshots](./screenshots/mgl_cook-torrance_2.png)
 
-I continue the format presented in the Blinn-Phone demo, where we have global illumination with cast shadows, a series of local point lights, and a flash light modelled as a spot light from the camera direction:
-
--   Press `f` to toggle the flash light.
-
--   Press `F2` to toggle the global light source.
-
--   Press `F4` to toggle local light sources (two local point lights in the scene, one green and one blue).
-
--   Press `F5` to toggle local texture blend.
+I continue the format presented in the Blinn-Phone demo, where we have global illumination with cast shadows, a series of local point lights, and a flash light modelled as a spot light from the camera direction.
 
 ![Screenshots](./screenshots/mgl_cook-torrance_3.png)
 
@@ -183,6 +178,19 @@ Generally, and in this demo, the Cook-Torrance method uses a diffuse Lambertian 
 
 -   Geometry shadowing/masking.
 
+Controls used:
+
+-   `ESC` - Exit
+-   `F1` - Toggle Pause time
+-   `F3` - Toggle view of wire-frames
+-   `F11` - Toggle full screen
+-   `WASD` - [Forward, Left, Backward, Right] flying camera movement
+-   `Mouse Move` - camera look movement
+-   Press `f` to toggle the flash light.
+-   Press `F2` to toggle the global light source.
+-   Press `F4` to toggle local light sources (two local point lights in the scene, one green and one blue).
+-   Press `F5` to toggle local texture blend.
+
 ### py_3.a_terrain - Terrain rendering
 
 I've combined several techniques to render the ground plane with a 'height map' technique. I have also used 'bill-boards' in the geometry shader to create the flora; and have added the techniques to render a skybox to the scene.
@@ -198,6 +206,19 @@ We can simulate wind movement on the grass using a 'flow map', which is a 2D tex
 Expanding on the grass rendering to use a texture atlas for the grass rendering. This is an efficient way to store multiple textures in a single texture. A texture atlas is a single texture that contains multiple textures. This is useful for rendering multiple objects with different textures in a single draw call. In this example, we use a texture atlas to store multiple grass textures in a 4x4 grid, and then use a shader program to select the correct texture the grass blades.
 
 In practice, the height map could be procedurally generated or loaded from an image file. The height map is used to displace the vertices of the ground plane in the vertex shader, and this creates the effect of a 3D ground plane.
+
+Controls used:
+
+-   `ESC` - Exit
+-   `F1` - Toggle Pause time
+-   `F3` - Toggle view of wire-frames
+-   `F11` - Toggle full screen
+-   `WASD` - [Forward, Left, Backward, Right] flying camera movement
+-   `Mouse Move` - camera look movement
+-   Press `f` to toggle the flash light.
+-   Press `F2` to toggle the global light source.
+-   Press `F4` to toggle local light sources (two local point lights in the scene, one green and one blue).
+-   Press `F5` to toggle local texture blend.
 
 ### py_4.a_ssaa - Super sample anti-aliasing
 
