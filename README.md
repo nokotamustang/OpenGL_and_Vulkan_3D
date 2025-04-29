@@ -100,6 +100,7 @@ A _bidirectional reflectance distribution function_ is a function of four variab
 Blinn's model is an approximate of Phong shading, which had an internal issue rendering reflected light more than 90 degrees from the view and the reflection vectors, that made the light look 'cut-off'. The approximation to use the half-way vector corrected this flaw, producing a more realistic illumination model.
 
 ![Screenshots](./screenshots/mgl_blinn-phong_1.png)
+![Screenshots](./screenshots/mgl_blinn-phong_5.png)
 _With only global lights on, the shadows are pitch black. The global light, at this angle of the camera, is producing specular reflections on the cubes; the metallic textured cube has a higher specular level than the wooden ones and thus produces more of the effect._
 
 This demo creates a cube mesh from scratch, reuses it as bound to a vertex array object with a vert and frag shader program. I combined multiple rendering techniques in this example:
