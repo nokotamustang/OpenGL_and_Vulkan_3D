@@ -323,7 +323,7 @@ Here is how you can setup a new project, or read for a description of how I stru
 
         Open the `.bat` files to see the commands used and make use of them in a terminal. Extend and edit these as you need. Rewrite to `.sh` if you desire.
 
-        Remember if you add or change source files, you will need to build before compiling.
+        Remember if you add or rename source files, you will need to build before compiling.
 
     - **_Or_** A direct command line call for a build with GNU Make and Cmake is like this:
 
@@ -534,7 +534,7 @@ Before we get to the projects in this repository, here is how I have set up my p
 
         Open the `.bat` files to see the commands used and make use of them in a terminal. Extend and edit these as you need. Rewrite to `.sh` if you desire.
 
-        Remember if you add or change source files, you will need to build before compiling.
+        Remember if you add or rename source files, you will need to build before compiling.
 
 ### cpp_vlk_1.a_triangle - Triangle Rendered with Vulkan
 
