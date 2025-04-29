@@ -112,7 +112,7 @@ This demo creates a cube mesh from scratch, reuses it as bound to a vertex array
 
 -   Organized parameters where the lights have strength and color, and the cube objects have a material definition of albedo, diffuse, and specular properties, in addition to a a texture map.
 
-![Screenshots](./screenshots/mgl_blinn-phong_4.png)
+![Screenshots](./screenshots/mgl_blinn-phong_2.png)
 _With only local point lights on, the effect of those lights are stronger on the scene; however, they have strength attenuation so do not produce a strong effect on the materials without increasing the light strengths._
 
 In some approaches that you see online, the light has a set of properties that include the albedo, diffuse, and specular value. The albedo is the base color of the light, the diffuse is how rough or smooth it is, the specular is how much direct reflection there is. However, I believe this is better to associate the albedo, diffuse, and specular values with the objects and not the lights. So instead I have created the lights to have their own strength and color values.
@@ -123,8 +123,8 @@ If you change the light strength to 0, you will see the resulting illumination i
 
 This example adds texture mapping to the object mesh of each cube. The texture is a 2D image that is mapped to the surface of the cube using texture coordinates. The texture coordinates are stored in the VBO along with the vertices of the cube. I also added multiple-local lights to the scene and adapt the fragment shader to composite all of this together.
 
-![Screenshots](./screenshots/mgl_blinn-phong_2.png)
-_Global illumination on, local illumination on modelled as point lights, one blue and one green._
+![Screenshots](./screenshots/mgl_blinn-phong_3.png)
+_Both global illumination and local illumination on._
 
 A shadow map casting system is also added for the global light. A shadow map is a depth buffer that is rendered from the perspective of the light source. The depth buffer is then used to determine if a pixel on the cube is in shadow or not. If the pixel is in shadow, it is darkened; if it is not in shadow, it is illuminated.
 
@@ -132,8 +132,8 @@ A two pass rendering system is used to create shadows in the scene. The first pa
 
 I have included several local point light sources in this demo. The point lights can blend into the casted shadows, which is why you see some color on the floor and the cubes when they are in shadow. The flash light can be switched on, which is modelled as a spot-light with the direction set to the camera. A technique to soften the edges is used by providing two angles of the light, as the inner and outer angles. Without added a shadow map for each desired light, it is not possible to add multiple casted shadows.
 
-![Screenshots](./screenshots/mgl_blinn-phong_3.png)
-_With the global and points light off, I turn on the flash light is on which is modelled as a spot-light._
+![Screenshots](./screenshots/mgl_blinn-phong_4.png)
+_With the global and point lights off, I turn on the flash light is on which is modelled as a spot-light._
 
 Controls used:
 
@@ -145,7 +145,7 @@ Controls used:
 -   `Mouse Move` - camera look movement
 -   Press `f` to toggle the flash light.
 -   Press `F2` to toggle the global light source.
--   Press `F4` to toggle local light sources (two local point lights in the scene, one green and one blue).
+-   Press `F4` to toggle local light sources.
 -   Press `F5` to toggle local texture blend.
 
 ### py_2.a_cook-torrance - Cook-Torrance
@@ -153,16 +153,20 @@ Controls used:
 In 1982, Robert Cook and Kenneth Torrance published a reflectance model that is claimed to more accurately represent the physical reality of light compared to others such as the Blinn-Phong model.
 
 ![Screenshots](./screenshots/mgl_cook-torrance_1.png)
+![Screenshots](./screenshots/mgl_cook-torrance_2.png)
+_At first glance the Cook-Torrance model appears a little darker than Blinn-Phong. when we view a metallic surface at a sharp angle facing the light we see a brilliant specular reflection._
 
 For more realism in the model, the computation of the BRDF is more complex. The Cook-Torrance model assumes a surface is composed of tiny micro-facets, each acting as a perfect mirror reflecting light. These micro-facets vary in orientation, producing a range of reflection behaviors from diffuse (rough surfaces) to specular (smooth surfaces).
 
 The model is physically grounded, adhering to principles like energy conservation and reciprocity, and it produces realistic highlights and material appearances under different lighting conditions.
 
-![Screenshots](./screenshots/mgl_cook-torrance_2.png)
+![Screenshots](./screenshots/mgl_cook-torrance_3.png)
+_When the local point lights are viewed, the reflective properties are clear to see._
 
 I continue the format presented in the Blinn-Phone demo, where we have global illumination with cast shadows, a series of local point lights, and a flash light modelled as a spot light from the camera direction.
 
-![Screenshots](./screenshots/mgl_cook-torrance_3.png)
+![Screenshots](./screenshots/mgl_cook-torrance_4.png)
+_Point blank flashlight produces a nice effect from the surfaces as well._
 
 In summary the Cook-Torrance BRDF combines:
 
@@ -188,7 +192,7 @@ Controls used:
 -   `Mouse Move` - camera look movement
 -   Press `f` to toggle the flash light.
 -   Press `F2` to toggle the global light source.
--   Press `F4` to toggle local light sources (two local point lights in the scene, one green and one blue).
+-   Press `F4` to toggle local light sources.
 -   Press `F5` to toggle local texture blend.
 
 ### py_3.a_terrain - Terrain rendering
@@ -217,7 +221,7 @@ Controls used:
 -   `Mouse Move` - camera look movement
 -   Press `f` to toggle the flash light.
 -   Press `F2` to toggle the global light source.
--   Press `F4` to toggle local light sources (two local point lights in the scene, one green and one blue).
+-   Press `F4` to toggle local light sources.
 -   Press `F5` to toggle local texture blend.
 
 ### py_4.a_ssaa - Super sample anti-aliasing
