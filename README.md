@@ -309,7 +309,7 @@ Here is how you can setup a new project, or read for a description of how I stru
         └── CMakeLists.txt
     ```
 
-    Again, note that in my examples the `external` director is another level up for sharing across all projects.
+    Again, note that in my examples the `external` directory is another level up for sharing across all projects.
 
 5. To create the build files, you have some options. Although I've used them all, I prefer the first option:
 
