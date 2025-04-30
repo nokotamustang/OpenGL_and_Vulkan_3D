@@ -8,35 +8,7 @@ Computer graphics is a vast field, and I am interested in learning more about th
 
 `OpenGL` (Open Graphics Library) and Vulkan are both industry-standard APIs (Application Programming Interfaces) used for rendering 2D and 3D graphics in applications such as games, virtual reality experiences, and scientific simulations. OpenGL has evolved from an older graphics API called NeHeGL to the current state with versions like OpenGL 4.6, seemingly the last iteration of the API since Vulkan has been standardized.
 
-Key features of OpenGL:
-
-1. Cross-Platform Support - OpenGL is supported on a wide range of hardware and operating systems including Windows, macOS, Linux, Android, iOS, and embedded platforms.
-
-2. High-Level Abstractions - It provides functions for managing graphical objects (like textures, buffers), transformations, and rendering.
-
-3. Performance - OpenGL is generally considered to be very fast and efficient in graphics rendering, allowing developers to create highly detailed and interactive applications.
-
-4. Flexibility - While it offers a high level of flexibility, this also means that writing code for it can become complex as the API has many parameters and settings to configure.
-
-5. Community Support - Large and active community with numerous tutorials, forums, and libraries available.
-
-`Vulkan` is a high-performance, low-latency API for rendering 2D and 3D graphics. Vulkan was introduced in 2015 by the _Khronos Group_ as a successor to OpenGL ES, aiming to provide better performance and more control over hardware resources.
-
-Key features of Vulkan:
-
-1. High Performance - Designed from the ground up for high-performance applications, Vulkan minimizes overhead and allows developers to leverage modern GPU features efficiently.
-
-2. Low Latency - Optimized for real-time rendering and low-latency use cases such as virtual reality.
-
-3. Fine-Grained Control: - Offers more control over the graphics pipeline and hardware resources compared to OpenGL, giving developers precise performance tuning capabilities.
-
-4. Cross-Platform Support - Vulkan is supported on multiple platforms, including Windows, macOS, Linux, Android, iOS, and embedded systems.
-
-5. Portability - Designed with portability in mind, allowing applications to run across different hardware and software configurations without modification.
-
-6. Validation Layers - Built-in validation layers that help developers catch errors early in the development process.
-
-`In summary` OpenGL is a mature, widely adopted API for graphics rendering with a balance of performance and ease of use. And Vulkan is A newer, more performant API designed to provide fine-grained control over hardware resources, optimizing for real-time applications and high-performance graphics.
+When comparing OpenGL to Vulkan: OpenGL is a mature, widely adopted API for graphics rendering with a balance of performance and ease of use. And Vulkan is A newer, more performant API designed to provide fine-grained control over hardware resources, optimizing for real-time applications and high-performance graphics.
 
 There are several very detailed books about graphics rendering to learn a variety of techniques. What I have discovered is there is no resolved or fixed solution that is the best way to combine multiple techniques to create a coherent and efficient system. When it comes to creating real-time graphics with interactive applications, there is a complex balance between performance and quality, and each _engine_ that is developed has it's own structure, balance, and unique list of bottlenecks.
 
@@ -56,7 +28,7 @@ It is accessible to skip to what you want to read, however It might be better to
 
 _**Python code not ready yet; I will include project source code soon! - Charlie**_
 
-Python is much simpler to configure with pip, and the ModernGL library makes it easy to get started with OpenGL in Python. ModernGL wraps OpenGL in Python and simplifies the process of creating 3D graphics by grouping API calls into simpler logical routines. Since the base module is compiled in C, the python wrapper provided by ModernGL is still fast for rendering.
+Python is much simpler to configure with pip, and the ModernGL library makes it easy to get started with OpenGL in Python. ModernGL wraps OpenGL in Python and simplifies the process of creating 3D graphics by grouping API calls into simpler logical routines. Since the base module is compiled in C, the python wrapper provided by ModernGL is still fast for rendering. See the ModernGL documentation for more information: <https://moderngl.readthedocs.io/en/latest/reference/moderngl.html>.
 
 Pygame is a set of Python modules designed for writing video games. It includes computer graphics and sound libraries designed to be used with the Python programming language. This makes a perfect pair of libraries to create 3D graphics in Python.
 
