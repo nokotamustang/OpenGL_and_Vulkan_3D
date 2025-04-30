@@ -26,7 +26,7 @@ It is accessible to skip to what you want to read, however It might be better to
 
 ## Python 3.12.10, ModernGL, and Pygame
 
-_**Python code not ready yet; I will include project source code soon! - Charlie**_
+_**Python code not ready yet for all project demos; I will include project source code for series 3 and 4 soon! - Charlie**_
 
 Python is much simpler to configure with pip, and the ModernGL library makes it easy to get started with OpenGL in Python. ModernGL wraps OpenGL in Python and simplifies the process of creating 3D graphics by grouping API calls into simpler logical routines. Since the base module is compiled in C, the python wrapper provided by ModernGL is still fast for rendering. See the ModernGL documentation for more information: <https://moderngl.readthedocs.io/en/latest/reference/moderngl.html>.
 
