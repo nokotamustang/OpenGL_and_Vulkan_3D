@@ -4,6 +4,7 @@
 //
 #define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
+//
 #include <fmt/color.h>   // fmt::fg, fmt::bg
 #include <fmt/format.h>  // fmt::print
 
@@ -102,8 +103,8 @@ int main(void) {
 #endif
     print("build type: {}\n", build_type);
 
+    // Initialize GLFW
     glfwSetErrorCallback(error_callback);
-
     bool success = glfwInit();
     if (!success) {
         print(stderr, fg(fmt::color::red), "failed to initialize GLFW\n");
@@ -152,7 +153,7 @@ int main(void) {
         glfwSetWindowPos(window, xPos, yPos);
     }
 
-    // Set up GLFW callbacks
+    // Set up GLFW callbacks and create the window
     glfwSetKeyCallback(window, key_callback);
     glfwMakeContextCurrent(window);
     gladLoadGL(glfwGetProcAddress);
@@ -166,11 +167,9 @@ int main(void) {
     const GLuint vertex_shader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertex_shader, 1, &vertex_shader_text, NULL);
     glCompileShader(vertex_shader);
-
     const GLuint fragment_shader = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(fragment_shader, 1, &fragment_shader_text, NULL);
     glCompileShader(fragment_shader);
-
     const GLuint default_program = glCreateProgram();
     glAttachShader(default_program, vertex_shader);
     glAttachShader(default_program, fragment_shader);
@@ -190,32 +189,41 @@ int main(void) {
     glVertexAttribPointer(vcol_location, 3, GL_FLOAT, GL_FALSE,
                           sizeof(Vertex), (void*)offsetof(Vertex, col));
 
+    double last_time = glfwGetTime();
+    const float rotation_speed = glm::radians(25.0);
+    float rotation = 0;
     int buffer_w, buffer_h;
     glfwGetFramebufferSize(window, &buffer_w, &buffer_h);
     const float ratio = buffer_w / (float)buffer_h;
+    mat4x4 model, view, projection;
+    glViewport(0, 0, buffer_w, buffer_h);
+    glClearColor(0.08, 0.16, 0.18, 1.0);
+    // glEnable(GL_DEPTH_TEST);
 
     print("start main loop \n");
-    mat4x4 m, p, mvp;
     while (!glfwWindowShouldClose(window)) {
-        glViewport(0, 0, buffer_w, buffer_h);
         glClear(GL_COLOR_BUFFER_BIT);
+        const double now_time = glfwGetTime();
+        const float delta_time = (float)(now_time - last_time);
+        last_time = now_time;
+        rotation += rotation_speed * delta_time;
 
-        const float delta_time = (float)glfwGetTime();
-
-        mat4x4_identity(m);
-        mat4x4_rotate_Z(m, m, delta_time * 0.1f);
-        mat4x4_ortho(p, -ratio, ratio, -1.f, 1.f, 1.f, -1.f);
-        mat4x4_mul(mvp, p, m);
+        mat4x4_identity(model);
+        mat4x4_rotate_Z(model, model, rotation);
+        mat4x4_ortho(view, -ratio, ratio, -1.f, 1.f, 1.f, -1.f);
+        mat4x4_mul(projection, view, model);
 
         glUseProgram(default_program);
-        glUniformMatrix4fv(mvp_location, 1, GL_FALSE, (const GLfloat*)&mvp);
+        glUniformMatrix4fv(mvp_location, 1, GL_FALSE, (const GLfloat*)&projection);
         glBindVertexArray(vertex_array);
         glDrawArrays(GL_TRIANGLES, 0, 3);
 
+        // Swap the buffer and let GLFW run events
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
+    // Cleanup and terminate
     glfwDestroyWindow(window);
     glfwTerminate();
     exit(EXIT_SUCCESS);

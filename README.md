@@ -342,9 +342,17 @@ This demo is a almost a raw code cut of the starter project from GLFW: <https://
 
 However, I have added the GLM library and FMT library, and a child class, all to fully demonstrate the CMake build process and has everything correctly working.
 
-I have also added code to center the window in the screen.
+I have also added code to center the window in the screen. Note that the code is left as a single file with inline shader program code, for simplicity. In the next demo the code will be separated out.
 
 ![Screenshots](./screenshots/ogl_triangle.png)
+
+### cpp_ogl_2.a_going_3d - Pyramid and code structure
+
+This demo is my clean and modern implementation of demo 07 from: <https://www.youtube.com/playlist?list=PLPaoO-vpZnumdcb4tZc4x5Q-v7CkrQ6M->. Victor Gordon's youtube and github repo are excellent reworking of the mind-blowing tutorials from: <https://learnopengl.com/Getting-started/Textures>.
+
+In this demo we render a texture onto a 3D mesh, we build and write a vertex and fragment shader to render the texture.
+
+![Screenshots](./screenshots/ogl_going_3d.png)
 
 ## Vulkan, C++23, Cmake 4.0, and GLFW
 

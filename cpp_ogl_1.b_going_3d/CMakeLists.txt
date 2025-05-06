@@ -69,6 +69,29 @@ FetchContent_MakeAvailable(linmath)
 # Method 2 - add the source files as is
 include_directories(${linmath_SOURCE_DIR})
 
+# stb_image library [this one has a CmakeLists build but it is at v3.9]
+# cmake_minimum_required(VERSION 3.9)
+# FetchContent_Declare(
+#     stb_image
+#     GIT_REPOSITORY https://github.com/M2-TE/stb_image.git
+#     GIT_TAG master
+#     GIT_SHALLOW 1
+# )
+# FetchContent_MakeAvailable(stb_image)
+# add_library(stb_image INTERFACE)
+# target_include_directories(stb_image INTERFACE ${stb_image_SOURCE_DIR})
+# cmake_minimum_required(VERSION 4.0)
+
+# stb_image headers [no CmakeLists]
+FetchContent_Declare(
+    stb_image
+    GIT_REPOSITORY https://github.com/nothings/stb.git
+    GIT_TAG master
+    GIT_SHALLOW 1
+)
+FetchContent_MakeAvailable(stb_image)
+include_directories(${stb_image_SOURCE_DIR})
+
 # GLM library
 FetchContent_Declare(
     glm
