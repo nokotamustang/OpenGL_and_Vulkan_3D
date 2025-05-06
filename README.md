@@ -283,6 +283,24 @@ Here is how you can setup a new project, or read for a description of how I stru
         └── CMakeLists.txt
     ```
 
+    In more advanced demos I put ogl related helper source code into `opengl_glfw`:
+
+    ```
+    parent
+    ├──external/
+    │   ├── glad/
+    │   │   └── gl.h
+    │   └── KHR/
+    │       └── khrplatform.h
+    └── project
+        ├──src/
+        │    ├── main.cpp
+        │    └── opengl_glfw/
+        |           └── gl.c
+        |           └── <your helper hpp and cpp files>
+        └── CMakeLists.txt
+    ```
+
     Again, note that in my examples the `external` directory is another level up for sharing across all projects.
 
 5. To create the build files, you have some options. Although I've used them all, I prefer the first option:
@@ -425,7 +443,8 @@ Before we get to the projects in this repository, here is how I have set up my p
     └── project
         ├──src/
         │    ├── main.cpp
-        │    └── gl.c
+        │    └── vulkan_glfw/
+        │           └── <your helper hpp and cpp files>
         └── CMakeLists.txt
     ```
 
