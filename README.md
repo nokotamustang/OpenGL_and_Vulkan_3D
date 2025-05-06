@@ -229,6 +229,8 @@ Here is how you can setup a new project, or read for a description of how I stru
 
 1. Create a project directory, and inside here we do the following:
 
+    - Don't use spaces in the project name for full compatibility, especially if you are using my build batch fils.
+
     - A `CMakeLists.txt` file at the root of your project.
 
     - A `src` directory for your code.
@@ -359,6 +361,8 @@ A great tutorial series for C++ and Vulkan is Brendan Galea's tutorial: <https:/
 Before we get to the projects in this repository, here is how I have set up my projects:
 
 1.  Create a project directory, and inside here we do the following:
+
+    -   Don't use spaces in the project name for full compatibility, especially if you are using my build batch fils.
 
     -   A `CMakeLists.txt` file at the root of your project.
 

@@ -54,7 +54,6 @@ IF "%build_type%"=="Release" (
         echo no release.txt to copy assets with
     )
 )
-exit /b 1
 
 echo current path: "%current_path%"
 echo building "build/%build_main%/%build_sub%":
