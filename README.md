@@ -253,7 +253,7 @@ Here is how you can setup a new project, or read for a description of how I stru
 
     - Test for the installation by running `gcc --version` or `g++ --version` in a terminal.
 
-    - An additional compiler that replaces `GNU make` is `ninja` developed by _Google_ in 2012. This is said to be significantly faster on larger projects, thankfully you can use both but each needs their own build directory.
+    - An additional compiler that replaces `GNU make` is `ninja` developed by _Google_ in 2012. This is said to be significantly faster on larger projects, thankfully you can use both as you wish but each needs their own build directory.
 
     Get it the release from: <https://github.com/ninja-build/ninja>. If you want to use this install MinGW first and then copy the `ninja.exe` into the `C:\MinGW\bin` directory.
 
@@ -295,6 +295,7 @@ Here is how you can setup a new project, or read for a description of how I stru
     └── project
         ├──src/
         │    ├── main.cpp
+        │    ├── app.cpp
         │    └── opengl_glfw/
         |           └── gl.c
         |           └── <engine code>
@@ -412,7 +413,7 @@ Before we get to the projects in this repository, here is how I have set up my p
 
     -   Test for the installation by running `gcc --version` or `g++ --version` in a terminal.
 
-    -   An additional compiler that replaces `GNU make` is `ninja` developed by _Google_ in 2012. This is said to be significantly faster on larger projects, thankfully you can use both but each needs their own build directory.
+    -   An additional compiler that replaces `GNU make` is `ninja` developed by _Google_ in 2012. This is said to be significantly faster on larger projects, thankfully you can use both as you with but each needs their own build directory.
 
     Get it the release from: <https://github.com/ninja-build/ninja>. If you want to use this install MinGW first and then copy the `ninja.exe` into the `C:\MinGW\bin` directory.
 
@@ -443,6 +444,7 @@ Before we get to the projects in this repository, here is how I have set up my p
     └── project
         ├──src/
         │    ├── main.cpp
+        │    ├── app.cpp
         │    └── vulkan_glfw/
         │           └── <engine code>
         └── CMakeLists.txt
