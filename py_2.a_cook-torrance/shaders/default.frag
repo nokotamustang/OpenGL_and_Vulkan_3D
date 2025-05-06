@@ -35,9 +35,11 @@ struct Material {
   float s;
 };
 
+const int max_lights = 99;
+
 // uniform vec2 u_resolution;
 uniform vec3 cam_pos;
-uniform PointLight lights[99];
+uniform PointLight lights[max_lights];
 uniform float num_lights;
 
 uniform Light global_light;
@@ -63,20 +65,20 @@ const vec3 i_gamma = vec3(1 / 2.2);
 // }
 // float get_shadow_pcf_4() {
 //   float shadow;
-//   const float swidth = 1.5;  // shadow spread
-//   const vec2 offset = mod(floor(gl_FragCoord.xy), 2.0) * swidth;
-//   shadow += lookup(-1.5 * swidth + offset.x, 1.5 * swidth - offset.y);
-//   shadow += lookup(-1.5 * swidth + offset.x, -0.5 * swidth - offset.y);
-//   shadow += lookup(0.5 * swidth + offset.x, 1.5 * swidth - offset.y);
-//   shadow += lookup(0.5 * swidth + offset.x, -0.5 * swidth - offset.y);
+//   const float spread = 1.5;  // shadow spread
+//   const vec2 offset = mod(floor(gl_FragCoord.xy), 2.0) * spread;
+//   shadow += lookup(-1.5 * spread + offset.x, 1.5 * spread - offset.y);
+//   shadow += lookup(-1.5 * spread + offset.x, -0.5 * spread - offset.y);
+//   shadow += lookup(0.5 * spread + offset.x, 1.5 * spread - offset.y);
+//   shadow += lookup(0.5 * spread + offset.x, -0.5 * spread - offset.y);
 //   return shadow * 0.25;
 // }
 // float get_shadow_pcf_16() {
 //   float shadow;
-//   const float swidth = 1.0;
-//   const float endp = swidth * 1.5;
-//   for (float y = -endp; y <= endp; y += swidth) {
-//     for (float x = -endp; x <= endp; x += swidth) {
+//   const float spread = 1.0;
+//   const float end_p = spread * 1.5;
+//   for (float y = -end_p; y <= end_p; y += spread) {
+//     for (float x = -end_p; x <= end_p; x += spread) {
 //       shadow += lookup(x, y);
 //     }
 //   }
@@ -88,12 +90,12 @@ vec3 fresnelSchlick(float cosTheta, vec3 F0) {
 }
 float DistributionGGX(vec3 N, vec3 H, float roughness) {
   const float a2 = pow(roughness, 4.0);
-  const float NdotH = pow(max(dot(N, H), 0.0), 2.0);
-  return a2 / (pow(NdotH * (a2 - 1.0) + 1.0, 2.0) * PI);
+  const float n_dot_h = pow(max(dot(N, H), 0.0), 2.0);
+  return a2 / (pow(n_dot_h * (a2 - 1.0) + 1.0, 2.0) * PI);
 }
-float GeometrySchlickGGX(float NdotV, float roughness) {
+float GeometrySchlickGGX(float n_dot_v, float roughness) {
   const float k = pow(roughness + 1.0, 2.0) / 8.0;
-  return NdotV / (NdotV * (1.0 - k) + k);
+  return n_dot_v / (n_dot_v * (1.0 - k) + k);
 }
 float GeometrySmith(vec3 N, vec3 V, vec3 L, float roughness) {
   const float ggx2 = GeometrySchlickGGX(max(dot(N, V), 0.0), roughness);
@@ -109,7 +111,7 @@ vec3 directional_light(vec3 N, vec3 V, Light light, vec3 F0) {
   // Shadow
   // Force shadow off if z is outside the far plane of the frustum
   const float shadow = mix(textureProj(shadow_map_tex, shadow_coord), 1.0, 1.0 - step(1.0, shadow_coord.z));
-  // ... equivelent of: 
+  // ... equivalent of: 
   // float shadow = textureProj(shadow_map_tex, shadow_coord);
   // if (shadow_coord.z < 0.0) {
   //   shadow = 1.0;
@@ -147,7 +149,8 @@ vec3 point_light(vec3 N, vec3 V, PointLight light, vec3 F0) {
   // Attenuation
   const float distance = length(light.position - fragPos);
   const float strength = light.strength;
-  const float attenuation = light.strength / distance;
+  const float attenuation = light.strength / distance; // Basic attenuation for now, usually this would be / pow(distance, 2.0)
+  // More complex attenuation formula that uses a linear and quadratic term from the light; and the strength is the constant.
   // const float light_quadratic = 0.09;
   // const float light_linear = 0.032;
   // const float attenuation = 1.0 / (light.strength + light_linear * distance + light_quadratic * pow(distance, 2.0));  
@@ -191,7 +194,8 @@ vec3 spot_light(vec3 N, vec3 V, SpotLight light, vec3 F0) {
   // Attenuation
   const float distance = length(light.position - fragPos);
   const float strength = light.strength;
-  const float attenuation = light.strength / distance;
+  const float attenuation = light.strength / distance; // Basic attenuation for now, usually this would be / pow(distance, 2.0)
+  // More complex attenuation formula that uses a linear and quadratic term from the light; and the strength is the constant.
   // const float light_quadratic = 0.09;
   // const float light_linear = 0.032;
   // const float attenuation = 1.0 / (light.strength + light_linear * distance + light_quadratic * pow(distance, 2.0));  
@@ -225,15 +229,18 @@ vec3 light_colors(vec3 tex_color) {
   const vec3 N = normalize(normal);
   const vec3 V = normalize(cam_pos - fragPos);
 
-  // Precompute the surface responce at normal incidence
+  // Precompute the surface response at normal incidence
   const vec3 F0 = mix(vec3(0.04), material.a, material.s);
 
   // Directional lights
   vec3 Lo = directional_light(N, V, global_light, F0);
 
   if (local_light_blend > 0.0) {
-    for (int i = 0; i < num_lights; i++) {
+    for (int i = 0; i < max_lights; i++) {
       Lo += point_light(N, V, lights[i], F0);
+      if (i == num_lights) {
+        break;
+      }
     }
   }
 

@@ -35,9 +35,11 @@ struct Material {
   float s;
 };
 
+const int max_lights = 99;
+
 // uniform vec2 u_resolution;
 uniform vec3 cam_pos;
-uniform PointLight lights[99];
+uniform PointLight lights[max_lights];
 uniform float num_lights;
 
 uniform Light global_light;
@@ -150,8 +152,11 @@ vec3 light_colors(vec3 tex_color) {
 
   // Point lights such as local lights
   if (local_light_blend > 0.0) {
-    for (int i = 0; i < num_lights; i++) {
+    for (int i = 0; i < max_lights; i++) {
       Lo += point_light(V, N, lights[i]);
+      if (i == num_lights) {
+        break;
+      }
     }
   }
 

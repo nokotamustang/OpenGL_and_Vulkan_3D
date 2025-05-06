@@ -31,7 +31,7 @@ IF "%~1"=="release" (
 )
 REM if build_type is none then exit
 IF "%build_type%"=="none" (
-    echo No build type specified:
+    echo no build type specified:
     echo build debug; build release; build development
     exit /b 1
 )
