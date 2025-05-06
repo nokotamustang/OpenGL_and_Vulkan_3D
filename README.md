@@ -267,7 +267,7 @@ Here is how you can setup a new project, or read for a description of how I stru
 
     - The `gl.c` file needs to be where your main source file is in the `src` folder. Put the `lib` and `include` directories inside the `external` directory of your project.
 
-    View of the project structure:
+    View of the project structure is as follows:
 
     ```
     parent
@@ -283,7 +283,7 @@ Here is how you can setup a new project, or read for a description of how I stru
         └── CMakeLists.txt
     ```
 
-    In more advanced demos I put ogl related helper source code into `opengl_glfw`:
+    In more advanced demos I put ogl related helper source code into `opengl_glfw`, with the `gl.h` file as well like this:
 
     ```
     parent
@@ -426,7 +426,7 @@ Before we get to the projects in this repository, here is how I have set up my p
         -   Browse to installation directory and copy the `include` and `lib` folders to a subfolder such as `external/vulkan`.
         -   The installer added _VK_SDK_PATH_ and _VULKAN_SDK_ to your environment. As well as `C:/vulkan/Bin` to your _PATH_.
 
-    The external files directory should have a structure similar to this:
+    The external files directory should have a structure as follows:
 
     ```
     parent
