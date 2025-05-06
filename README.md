@@ -245,13 +245,13 @@ Here is how you can setup a new project, or read for a description of how I stru
 
     - If you want to use your older version then fine, but looking at the deprecation warnings and the issues you will have with version policies and so on... I recommend to just update and avoid all of it.
 
-3. You will need to install a compiler, I'm going to point you to 64 bit GNU GCC compiler from MinGW on Windows:
+3. You will need to install a compiler, I'm going to point you to 64 bit GNU `gcc` and `g++` compilers from MinGW on Windows:
 
     - Install `MinGW Portable C, C++, and Fortran Development Kit for x64` from: <https://github.com/skeeto/w64devkit>. I use directory `C:/MinGW`.
 
     - Add the bin folder of MinGW Portable to your _PATH_ environment variable, such as `C:\MinGW\bin`.
 
-    - Test for the installation by running `gcc --version` in a terminal.
+    - Test for the installation by running `gcc --version` or `g++ --version` in a terminal.
 
     - An additional compiler that replaces `GNU make` is `ninja` developed by _Google_ in 2012. This is said to be significantly faster on larger projects, thankfully you can use both but each needs their own build directory.
 
@@ -297,7 +297,7 @@ Here is how you can setup a new project, or read for a description of how I stru
         │    ├── main.cpp
         │    └── opengl_glfw/
         |           └── gl.c
-        |           └── <your helper hpp and cpp files>
+        |           └── <engine code>
         └── CMakeLists.txt
     ```
 
@@ -404,13 +404,13 @@ Before we get to the projects in this repository, here is how I have set up my p
 
     -   If you want to use your older version then fine, but looking at the deprecation warnings and the issues you will have with version policies and so on... I recommend to just update and avoid all of it.
 
-3.  You will need to install a compiler, I'm going to point you to 64 bit GNU GCC compiler from MinGW on Windows:
+3.  You will need to install a compiler, I'm going to point you to 64 bit `gcc` and `g++` compilers from MinGW on Windows:
 
     -   Install `MinGW Portable C, C++, and Fortran Development Kit for x64` from: <https://github.com/skeeto/w64devkit>. I use directory `C:/MinGW`.
 
     -   Add the bin folder of MinGW Portable to your _PATH_ environment variable, such as `C:\MinGW\bin`.
 
-    -   Test for the installation by running `gcc --version` in a terminal.
+    -   Test for the installation by running `gcc --version` or `g++ --version` in a terminal.
 
     -   An additional compiler that replaces `GNU make` is `ninja` developed by _Google_ in 2012. This is said to be significantly faster on larger projects, thankfully you can use both but each needs their own build directory.
 
@@ -444,7 +444,7 @@ Before we get to the projects in this repository, here is how I have set up my p
         ├──src/
         │    ├── main.cpp
         │    └── vulkan_glfw/
-        │           └── <your helper hpp and cpp files>
+        │           └── <engine code>
         └── CMakeLists.txt
     ```
 
