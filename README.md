@@ -283,7 +283,7 @@ Here is how you can setup a new project, or read for a description of how I stru
         └── CMakeLists.txt
     ```
 
-    In more advanced demos I put ogl related helper source code into `opengl_glfw`, with the `gl.h` file as well like this:
+    In more advanced demos I put ogl related helper source code into `opengl_glfw`, with the `gl.c` file as well like this:
 
     ```
     parent
