@@ -214,15 +214,11 @@ Controls used:
 -   Press `F4` to toggle local light sources.
 -   Press `F5` to toggle local texture blend.
 
-### py_4.a_ssaa - Super sample anti-aliasing
+### Anti-aliasing demos
 
-I added anti-aliasing with a sized up render buffer with 4 samples. This is considered to be 'SSAA' or 'Super-Sample Anti-Aliasing', and usually run slower than other methods but produces the objective 'best quality'.
+Without anti-aliasing, the straight edges of objects appear jagged because the pixels on the screen are square and the edges are not aligned with the pixels during rasterization. Anti-aliasing smooths out the edges of the cube by blending the colors of the pixels along the edges.
 
-Without anti-aliasing, the edges of the cube appear jagged because the pixels on the screen are square and the edges of the cube are not aligned with the pixels during rasterization. Anti-aliasing smooths out the edges of the cube by blending the colors of the pixels along the edges.
-
-![Screenshots](./screenshots/mgl_ssaa1.png)
-
-The basic principle of SSAA is to render the scene at a higher resolution and then down-sample it to the screen resolution. In MGL this is done by rendering the scene to a render buffer with a higher resolution than the screen, and then down-sampling it to the screen resolution using a **blit** from the render buffer to the screen buffer.
+I'll cover AA techniques starting with the basic principle of SSAA is to render the scene at a higher resolution and then down-sample it to the screen resolution.
 
 Other multiple anti-aliasing techniques exist, and they all have trade-offs between quality and performance. The most common anti-aliasing techniques are MSAA (Multi-Sample Anti-Aliasing), FXAA (Fast Approximate Anti-Aliasing), and TAA (Temporal Anti-Aliasing).
 
@@ -231,6 +227,14 @@ MSAA is a cheaper form of SSAA. Instead of going through the process of sampling
 FXAA is a post-processing anti-aliasing technique that is applied to the final image. It is a fast and efficient way to smooth out the edges of the cube, but it can produce artifacts and blur the image.
 
 TAA is a temporal anti-aliasing technique that uses information from previous frames to smooth out the edges by blending pixel information. It is considered to produce average results with a lot of blurring, but computationally cheaper than other methods, and therefore became widely used and standardized.
+
+#### py_4.a_ssaa - Super sample anti-aliasing
+
+I added anti-aliasing with a sized up render buffer with 4 samples. This is considered to be 'SSAA' or 'Super-Sample Anti-Aliasing', and usually run slower than other methods but produces the objective 'best quality'.
+
+![Screenshots](./screenshots/mgl_ssaa1.png)
+
+In MGL this is done by rendering the scene to a render buffer with a higher resolution than the screen, and then down-sampling it to the screen resolution using a **blit** from the render buffer to the screen buffer.
 
 ## OpenGL, C++23, Cmake 4.0, and GLFW
 
@@ -583,7 +587,7 @@ Note again that there is a difference to how this is set up to his tutorial:
     ```c++
     string root_path = "../../../shaders/compiled/";
     #ifdef COMPILE_RELEASE
-    root_path = "shaders/";
+        root_path = "shaders/";
     #endif
     ```
 
