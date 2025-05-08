@@ -151,12 +151,12 @@ For more realism in the model, the computation of the BRDF is more complex. The 
 The model is physically grounded, adhering to principles like energy conservation and reciprocity, and it produces realistic highlights and material appearances under different lighting conditions.
 
 ![Screenshots](./screenshots/mgl_cook-torrance_3.png)
-_When the local point lights are viewed, the reflective properties are clear to see._
+_When the local point lights are viewed without the global light, the reflective properties are clearer to see._
 
-I continue the format presented in the Blinn-Phone demo, where we have global illumination with cast shadows, a series of local point lights, and a flash light modelled as a spot light from the camera direction.
+I continue the format presented in the Blinn-Phong demo, where we have global illumination with cast shadows, a series of local point lights, and a flash light modelled as a spot light from the camera direction.
 
 ![Screenshots](./screenshots/mgl_cook-torrance_4.png)
-_Point blank flashlight produces a nice effect from the surfaces as well._
+_Point blank flashlight produces a nice effect from the metallic surfaces._
 
 In summary the Cook-Torrance BRDF combines:
 
@@ -187,7 +187,7 @@ Controls used:
 
 ### py_3.a_terrain - Terrain rendering
 
-I've combined several techniques to render the ground plane with a 'height map' technique. I have also used 'bill-boards' in the geometry shader to create the flora; and have added the techniques to render a skybox to the scene.
+I've combined several techniques to render a ground plane with the 'height map' technique. I have also used 'bill-boards' in the geometry shader to create the flora; and have added the techniques to render a sky and clouds.
 
 ![Screenshots](./screenshots/mgl_ground3.png)
 
