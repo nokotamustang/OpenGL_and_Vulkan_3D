@@ -1,14 +1,29 @@
 # OpenGL and Vulkan API graphics rendering
 
-_An exploration of 3D rendering in OpenGL and Vulkan APIs by Charlie (Nokota Mustang)_
+_An open exploration of modern 3D rendering in OpenGL and Vulkan._ - Charlie, Nokota Mustang
 
-👀 Be an early user on my discord server for discussions on OpenGL, Vulkan, 2D/3D Graphics, and game development: <https://discord.gg/Bkhpm8QQ>.
+_**👀 Be an early user on my discord for discussions on OpenGL, Vulkan, 2D/3D Graphics, and game development: <https://discord.gg/Bkhpm8QQ>.**_
 
 Computer graphics is a vast field, and I am interested in learning more about the rendering process and the mathematics behind it. Having a good grasp of realtime graphics, data structures, and algorithms is essential for game development, simulations, and visualizations in 2D or 3D.
 
-`OpenGL` (Open Graphics Library) and Vulkan are both industry-standard APIs (Application Programming Interfaces) used for rendering 2D and 3D graphics in applications such as games, virtual reality experiences, and scientific simulations. OpenGL has evolved from an older graphics API called NeHeGL to the current state with versions like OpenGL 4.6, seemingly the last iteration of the API since Vulkan has been standardized.
+`OpenGL` (Open Graphics Library) and `Vulkan` are both industry-standard APIs (Application Programming Interfaces) used for rendering 2D and 3D graphics in applications such as games, virtual reality experiences, and scientific simulations. OpenGL has evolved from an older graphics API called NeHeGL to the current state with versions like OpenGL 4.6, seemingly the last iteration of the API since Vulkan has been standardized.
 
 When comparing OpenGL to Vulkan: OpenGL is a mature, widely adopted API for graphics rendering with a balance of performance and ease of use. And Vulkan is A newer, more performant API designed to provide fine-grained control over hardware resources, optimizing for real-time applications and high-performance graphics.
+
+Small note here on what OpenGL is to DirectX11: OpenGL is cross-platform and DX11 is Microsoft exclusive (PC and Xbox) with a tight integration into the Windows OS. Some differences:
+
+-   OpenGL is state machine based, DX11 is more structured with explicit resource management.
+-   OpenGL can have higher overhead from state validation, and DX11 in some cases is more predictable performance wise for Windows.
+-   It is said that OpenGL has a steeper learning curve compared to DX11.
+-   Also useful for targeting mobile hardware or older hardware, or open source projects.
+
+On that era of graphics APIs, it is noted that DX11 and OpenGL are more 'high level', than the newer APIs such as Vulkan and DX12. Comparatively Vulkan continues on OpenGL and is cross platform, whereas DX12 is Windows and Xbox exclusive. Some notes:
+
+-   Both being lower level than the previous gen, giving more control over GPU resources, memory, and command buffers.
+-   Vulkan being more verbose and required management of memory, synch, and pipelines. DS12 is slightly higher abstraction up in comparison.
+-   Vulkan has potentially higher performance capabilities due to the control.
+-   Vulkan has a strong open source community, DX12 walled in by Microsoft but has access to integrated developer tools.
+-   Like OpenGL, Vulkan is useful for mobile hardware, and open source projects; despite DX12 being slightly easier to learn or useful for Windows specific tools or features.
 
 There are several very detailed books about graphics rendering to learn a variety of techniques. What I have discovered is there is no resolved or fixed solution that is the best way to combine multiple techniques to create a coherent and efficient system. When it comes to creating real-time graphics with interactive applications, there is a complex balance between performance and quality, and each _engine_ that is developed has it's own structure, balance, and unique list of bottlenecks.
 
@@ -16,17 +31,19 @@ When exploring a pre-built game engine, the low level rendering process is abstr
 
 This is the motivation to create your own engines, whether is is for games, visual effects, or other interactive applications. Also to state the obvious, using open source frameworks or engines means you have no licensing or royalty issues to resolve. Despite that, I also wonder how can aspiring computer engineers advance the state of the art if they use pre-built things, instead of learning how things work and implementing their own work.
 
-A final note, the sections in this repository are divided into:
+A final note, the sections in this repository are divided into demo areas like this:
 
--   Opengl Python apps.
+-   OpenGL Python apps.
 -   OpenGL C++ apps.
 -   Vulkan C++ apps.
 
-It is accessible to skip to what you want to read, however It might be better to stick around and work through the whole doc; I leave that up to you and am grateful for your time.
+Each section contains a small summary of the code eco-system and setup guide for newbies, then a series of subsections with code demonstrations of techniques.
+
+It is accessible to skip to what section you want to read, however It might be better to stick around and work through the whole doc; I leave that up to you and am grateful for your time.
 
 ## Python 3.12.10, ModernGL, and Pygame
 
-_**Python code not ready yet for all project demos; I will include project source code for series 3 and 4 soon! - Charlie**_
+_**Not all python is ready yet, I will include project source code for series 3 and 4 after updating and cleaning them up. - Charlie**_
 
 Python is much simpler to configure with pip, and the ModernGL library makes it easy to get started with OpenGL in Python. ModernGL wraps OpenGL in Python and simplifies the process of creating 3D graphics by grouping API calls into simpler logical routines. Since the base module is compiled in C, the python wrapper provided by ModernGL is still fast for rendering. See the ModernGL documentation for more information: <https://moderngl.readthedocs.io/en/latest/reference/moderngl.html>.
 
