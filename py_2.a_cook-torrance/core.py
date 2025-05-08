@@ -537,7 +537,7 @@ class Cube:
         self.shader_program = this_object.shader_program
         self.shadow_program = this_object.shadow_program
 
-        self.tex_id = app.texture.get_texture(path=f'./../textures/{texture}.png')
+        self.tex_id = app.texture.get_texture(path=f'../textures/{texture}.png')
         self.m_model = self.position
 
     def update(self):
@@ -660,15 +660,16 @@ class Scene():
         self.objects.append(Cube(app, position=(_g*2, 0, 0), texture="metal_1", roughness=0.3, metallic=1.0))
         self.objects.append(Cube(app, position=(_g*3, 0, 0), texture="metal_1", albedo=(1.00, 0.71, 0.29), roughness=0.35, metallic=0.95))
 
-        for obj in self.objects:
-            if obj.can_update:
-                self.update_list.append(obj)
-
         # Debug lights
         self.debug_light_global = DebugLight(app, light_source=self.app.global_light)
         self.debug_light_local = []
         for light in self.app.lights:
             self.debug_light_local.append(DebugLight(app, light_source=light))
+
+        # Cache the update list
+        for obj in self.objects:
+            if obj.can_update:
+                self.update_list.append(obj)
 
     def update(self):
         if self.moved == False:

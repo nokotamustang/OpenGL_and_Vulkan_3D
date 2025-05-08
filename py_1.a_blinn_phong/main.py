@@ -5,10 +5,10 @@ import pygame
 import moderngl
 import sys
 
-from core import Camera, CameraSpotLight, DirectionalLight, PointLight, Prototype, Shadow, Texture, Shader, Scene
+from core import Camera, Prototype, Shadow, Texture, Shader, Scene
 
 
-class GraphicsEngine:
+class Engine:
     # Settings
     target_fps = 999
     free_move = True
@@ -173,5 +173,5 @@ class GraphicsEngine:
 
 
 if __name__ == '__main__':
-    app = GraphicsEngine()
+    app = Engine()
     app.run()

@@ -139,7 +139,7 @@ void App::run() {
 
     // Gets ID of uniform called "scale"
     GLuint uniID = glGetUniformLocation(default_shader.ID, "scale");
-    string textures_path = "../../../../textures/";
+    string textures_path = "../../.../textures/";
 #ifdef COMPILE_RELEASE
     textures_path = "textures/";
 #endif
