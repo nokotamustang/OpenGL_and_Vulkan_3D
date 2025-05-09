@@ -584,7 +584,7 @@ This project is my implementation from Brendan Galea's tutorials.
 
 ![Screenshots](./screenshots/vlk_blinn-phong.png)
 
-Note again that there is a difference to how this is set up to his tutorial:
+There are some differences to how this is set up, noted as follows:
 
 -   I preferred to place rendering, glfw, and vulkan classes inside a sub-directory called 'vulkan_glfw', as with the previous demo.
 
