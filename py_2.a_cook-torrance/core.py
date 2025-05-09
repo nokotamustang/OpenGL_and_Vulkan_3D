@@ -627,7 +627,7 @@ class Scene():
                                      direction=(0, 0, 0),
                                      color=(1.0, 0.0, 0.0),
                                      strength=self.app.local_light_value)
-        # Point light 3
+        # Point light 4
         self.app.light4 = PointLight(position=(-7, 2, 5),
                                      direction=(0, 0, 0),
                                      color=(1.0, 1.0, 0.0),
