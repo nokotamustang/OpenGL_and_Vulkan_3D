@@ -49,8 +49,6 @@ Python is much simpler to configure with pip, and the ModernGL library makes it 
 
 Pygame is a set of Python modules designed for writing video games. It includes computer graphics and sound libraries designed to be used with the Python programming language. This makes a perfect pair of libraries to create 3D graphics in Python.
 
-Each project is a standalone example of a 3D rendering technique or feature working with Python 3.12.10. Some projects are combined to create a more complex scene. Each project is a self-contained example that can be run independently.
-
 To install do the following:
 
 1. Download Python: <https://www.python.org/downloads/release/python-3133/> and extract to a directory and add the bin path to your system PATH; I use `c:/python/bin`.
@@ -69,22 +67,15 @@ To install do the following:
 
 4. To run an example use `python main.py` from any of the project sub-directories.
 
-General keys used in all of the examples:
+Each project is a standalone example of a 3D rendering technique or feature working with Python 3.12.10. Some projects are combined to create a more complex scene. Each project is a self-contained example that can be run independently:
 
--   `ESC` - Exit
--   `F1` - Toggle Pause time
--   `F3` - Toggle view of wire-frames
--   `F11` - Toggle full screen
--   `WASD` - [Forward, Left, Backward, Right] flying camera movement
--   `Mouse Move` - camera look movement
+-   Series 1 will follow Blinn-Phong illumination
 
-Series 1 will follow Blinn-Phong illumination
+-   Series 2 will look at full BRDFs including Cook-Torrance and PBR workflows. These are more complex and require a lot of math to understand, but they provide much better results for realistic lighting in games and applications.
 
-Series 2 will look at full BRDFs including Cook-Torrance and PBR workflows. These are more complex and require a lot of math to understand, but they provide much better results for realistic lighting in games and applications.
+-   Series 3 is looking at terrain concepts such as height maps, including geometry shaders for billboards, and visual effects with environment maps, and volumetric clouds.
 
-Series 3 is looking at terrain concepts such as height maps, including geometry shaders for billboards, and visual effects with environment maps, and volumetric clouds.
-
-Series 4 is a collection of post-processing and other techniques to enhance the visual fidelity.
+-   Series 4 is a collection of post-processing and other techniques to enhance the visual fidelity.
 
 ### py_1.a_blinn-phong - Blinn-Phong
 
