@@ -51,19 +51,23 @@ Pygame is a set of Python modules designed for writing video games. It includes 
 
 Each project is a standalone example of a 3D rendering technique or feature working with Python 3.12.10. Some projects are combined to create a more complex scene. Each project is a self-contained example that can be run independently.
 
-To install use `pip install -r requirements.txt` to fetch the packages from the project directory.
+To install do the following:
 
-If you would rather use virtual environments then set it up like the following:
+1. Download Python: <https://www.python.org/downloads/release/python-3133/> and extract to a directory and add the bin path to your system PATH; I use `c:/python/bin`.
 
-```bat
-python -m venv venv
-call venv\Scripts\activate
-pip install -r requirements.txt
-```
+2. In a console enter `pip install -r requirements.txt`, from inside the project directory, to fetch the packages to your global python installation.
 
-First it creates the virtual environment, activates it in the terminal, and installs the packages from the requirements.txt file to that environment. With this terminal you can run the example without affecting other Python projects on your system.
+3. If you would rather use virtual environments then set it up like the following:
 
-To run an example use `python main.py` from any of the project sub-directories.
+    ```bat
+    python -m venv venv
+    call venv\Scripts\activate
+    pip install -r requirements.txt
+    ```
+
+    First it creates the virtual environment, activates it in the terminal, and installs the packages from the requirements.txt file to that environment. With this terminal you can run the example without affecting other Python projects on your system.
+
+4. To run an example use `python main.py` from any of the project sub-directories.
 
 General keys used in all of the examples:
 
@@ -78,7 +82,7 @@ Series 1 will follow Blinn-Phong illumination
 
 Series 2 will look at full BRDFs including Cook-Torrance and PBR workflows. These are more complex and require a lot of math to understand, but they provide much better results for realistic lighting in games and applications.
 
-Series 3 is looking at terrain concepts, including billboard geometry shaders, environment maps, and volumetric clouds.
+Series 3 is looking at terrain concepts such as height maps, including geometry shaders for billboards, and visual effects with environment maps, and volumetric clouds.
 
 Series 4 is a collection of post-processing and other techniques to enhance the visual fidelity.
 
