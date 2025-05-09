@@ -337,9 +337,11 @@ Here is how you can setup a new project, or read for a description of how I stru
 
     - **_Recommended_** Use the `.bat` files that I have created in my projects for building, compiling, and running the application:
 
-        So with a terminal run `build release` to create the Cmake build and then `compile release` to compile the executable. If you changed where `external` is you need to modify the `build.bat` script to point where you have it relative to your `CmakeLists.txt`.
+        So with a terminal run `build development` to create the Cmake build and then `compile development` to compile the executable. If you changed where `external` is you need to modify the `build.bat` script to point where you have it relative to your `CmakeLists.txt`.
 
-        If you want to use ninja then use `build release ninja` and `compile release ninja`.
+        I have added some flags to control what build you are making, so use `debug`, `development`, or `release` as you wish. Debug will enable debug flags in the compiler and code will be slower. Development is for fast runtime but inside your normal dev environment. And release is for when you move the resources to the build to get ready for testing a deployment type environment.
+
+        If you want to use ninja then use `build development ninja` and `compile development ninja`.
 
         I also added a `run.bat` file that will run the executable from the correct build directory, for the lazy like me.
 
@@ -558,11 +560,11 @@ Before we get to the projects in this repository, here is how I have set up my p
 
     -   Use the `.bat` files that I have included for building, compiling, and running.
 
-        So with a terminal run `build development` to create the Cmake build and then `compile development` to compile the executable.
+        So with a terminal run `build development` to create the Cmake build and then `compile development` to compile the executable. If you changed where `external` is you need to modify the `build.bat` script to point where you have it relative to your `CmakeLists.txt`.
+
+        I have added some flags to control what build you are making, so use `debug`, `development`, or `release` as you wish. Debug will enable debug flags in the compiler and code will be slower. Development is for fast runtime but inside your normal dev environment. And release is for when you move the resources to the build to get ready for testing a deployment type environment.
 
         If you want to use ninja then use `build development ninja` and `compile development ninja`.
-
-        For debugging symbols use `build debug` and `compile debug`; and for release use `build release` and compile `release`. You can also use ninja for these.
 
         I also added a `run.bat` file that will run the executable from the correct build directory, for the lazy like me used with the same notation: `run development` for example.
 
