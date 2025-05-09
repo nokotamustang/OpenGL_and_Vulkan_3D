@@ -183,6 +183,8 @@ Controls used:
 
 ### py_3.a_terrain - Terrain rendering
 
+_**This code is up but I have not optimized the shader parameters which are updating every draw, also I don't have chunking and other performance improvements yet**_
+
 I've combined several techniques to render a ground plane with the 'height map' technique. I have also used 'bill-boards' in the geometry shader to create the flora; and have added the techniques to render a sky and clouds.
 
 ![Screenshots](./screenshots/mgl_terrain_1.png)
