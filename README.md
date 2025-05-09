@@ -195,6 +195,7 @@ Controls used:
 I've combined several techniques to render a ground plane with the 'height map' technique. I have also used 'bill-boards' in the geometry shader to create the flora; and have added the techniques to render a sky and clouds.
 
 ![Screenshots](./screenshots/mgl_terrain_1.png)
+_The illumination properties are working nicely, however the grass should have some transparency which I have not modelled into the demo yet._
 
 The ground plane is created from a height map and displaced in the vertex shader. The normals of the ground plane are calculated in the geometry shader and passed to the fragment shader for lighting calculations.
 
