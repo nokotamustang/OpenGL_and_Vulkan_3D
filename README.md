@@ -113,7 +113,7 @@ In some approaches that you see online, the light has a set of properties that i
 
 This arrangement makes it possible to create multiple objects later on with their own properties; which is a good precursor to PBR and the Cook-Torrance brdf. So in my demo look for the attenuation calculation in my `default.frag`, and the resulting radiance value; his will be multiplied into the ambient + diffuse + specular result.
 
-If you change the light strength to 0, you will see the resulting illumination in the scene is pitch black. You can play with the albedo, diffuse, and specular properties of the cubes. In later demos I will create multiple lights and show how to combine the resulting colors.
+If you change the light strength to 0 or turn the lights off with the hotkeys, you will see the resulting illumination in the scene is pitch black. You can play with the albedo, diffuse, and specular properties of the cubes.
 
 This example adds texture mapping to the object mesh of each cube. The texture is a 2D image that is mapped to the surface of the cube using texture coordinates. The texture coordinates are stored in the VBO along with the vertices of the cube. I also added multiple-local lights to the scene and adapt the fragment shader to composite all of this together.
 
