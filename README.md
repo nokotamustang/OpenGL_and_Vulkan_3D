@@ -201,6 +201,9 @@ Grass in complex scenes isn't modelled from a 3D mesh, but rather a series of 2D
 
 The grass is created along each point on the ground plane using a geometry shader and a flow map to simulate wind movement. We can use the shader programs to render more complex objects such as grass. We can simulate wind movement on the grass using a 'flow map', which is a 2D texture that is used to control the movement of the wind. The flow map is used to offset the position of the grass in the geometry shader. Some more info on flow maps: <https://github.com/JaccomoLorenz/godot-flow-map-shader>
 
+![Screenshots](./screenshots/mgl_terrain_2.png)
+_With only local point lights on, I toggle the textures off and we see how the light is playing with the normals of the billboards._
+
 In practice, the height map could be procedurally generated or loaded from an image file. The height map is used to displace the vertices of the ground plane in the vertex shader, and this creates the effect of a 3D ground plane.
 
 For optimization we have to divide the terrain into chunks and manage them just as other objects in the scene.
