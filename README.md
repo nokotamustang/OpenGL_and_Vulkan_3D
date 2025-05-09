@@ -155,11 +155,12 @@ For more realism in the model, the computation of the BRDF is more complex. The 
 The model is physically grounded, adhering to principles like energy conservation and reciprocity, and it produces realistic highlights and material appearances under different lighting conditions.
 
 ![Screenshots](./screenshots/mgl_cook-torrance_3.png)
-_When the local point lights are viewed without the global light, the reflective properties are clearer to see._
+![Screenshots](./screenshots/mgl_cook-torrance_4.png)
+_When the local point lights are viewed without the global light, the reflective properties are clearer to see. With the textures disabled we see the illumination fully._
 
 I continue the format presented in the Blinn-Phong demo, where we have global illumination with cast shadows, a series of local point lights, and a flash light modelled as a spot light from the camera direction.
 
-![Screenshots](./screenshots/mgl_cook-torrance_4.png)
+![Screenshots](./screenshots/mgl_cook-torrance_5.png)
 _Point blank flashlight produces a nice effect from the metallic surfaces._
 
 In summary the Cook-Torrance BRDF combines:
