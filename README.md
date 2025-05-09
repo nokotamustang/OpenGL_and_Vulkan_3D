@@ -337,7 +337,7 @@ Here is how you can setup a new project, or read for a description of how I stru
 
     - **_Recommended_** Use the `.bat` files that I have created in my projects for building, compiling, and running the application:
 
-        So with a terminal run `build release` to create the Cmake build and then `compile release` to compile the executable.
+        So with a terminal run `build release` to create the Cmake build and then `compile release` to compile the executable. If you changed where `external` is you need to modify the `build.bat` script to point where you have it relative to your `CmakeLists.txt`.
 
         If you want to use ninja then use `build release ninja` and `compile release ninja`.
 
@@ -405,7 +405,7 @@ In this demo we render a texture onto a 3D mesh, we build and write a vertex and
 ## Vulkan, C++23, Cmake 4.0, and GLFW
 
 Each project is a standalone example working with C++23 GNU, and CMake 4.
-If you know what you are doing and don't need any flavour then skip down to the projects; otherwise if you want tips for Windows development then read on. It took me a decade of ignoring Cmake and then 1 day of trying it out with a good resource video and I would never go back to anything else, I highly recommend using it and learning how to create the `CmakeLists.txt` file.
+If you know what you are doing and don't need any flavour then skip down to the projects; otherwise if you want tips for Windows development then read on.
 
 I have used the modern FetchContent feature from CMake to pull the libraries from their respective repositories where possible in these projects, GLFW, GLM, etc. However Vulkan itself is included manually, similar to the Opengl examples.
 
