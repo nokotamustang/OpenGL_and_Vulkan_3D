@@ -78,7 +78,7 @@ Series 1 will follow Blinn-Phong illumination
 
 Series 2 will look at full BRDFs including Cook-Torrance and PBR workflows. These are more complex and require a lot of math to understand, but they provide much better results for realistic lighting in games and applications.
 
-Series 3 is looking at terrain concepts, including billboard geometry shaders, Sky boxes, and LOD.
+Series 3 is looking at terrain concepts, including billboard geometry shaders, environment maps, and volumetric clouds.
 
 Series 4 is a collection of post-processing and other techniques to enhance the visual fidelity.
 
