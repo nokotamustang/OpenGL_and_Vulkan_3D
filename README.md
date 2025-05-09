@@ -122,7 +122,7 @@ _Both global illumination and local illumination on._
 
 A shadow map casting system is also added for the global light. A shadow map is a depth buffer that is rendered from the perspective of the light source. The depth buffer is then used to determine if a pixel on the cube is in shadow or not. If the pixel is in shadow, it is darkened; if it is not in shadow, it is illuminated.
 
-A two pass rendering system is used to create shadows in the scene. The first pass renders the scene from the perspective of the light source to create a shadow map. The second pass renders the scene from the perspective of the camera and uses the shadow map to determine if a pixel is in shadow or not. This is a standard approach to rending shadows: <https://www.opengl-tutorial.org/intermediate-tutorials/tutorial-16-shadow-mapping/>.
+A two pass rendering system is used to create shadows in the scene, which is expensive. The first pass renders the scene from the perspective of the light source to create a shadow map. The second pass renders the scene from the perspective of the camera and uses the shadow map to determine if a pixel is in shadow or not. This is a standard approach to rending shadows: <https://www.opengl-tutorial.org/intermediate-tutorials/tutorial-16-shadow-mapping/>.
 
 I have included several local point light sources in this demo. The point lights can blend into the casted shadows, which is why you see some color on the floor and the cubes when they are in shadow. The flash light can be switched on, which is modelled as a spot-light with the direction set to the camera. A technique to soften the edges is used by providing two angles of the light, as the inner and outer angles. Without added a shadow map for each desired light, it is not possible to add multiple casted shadows.
 
@@ -197,13 +197,13 @@ I've combined several techniques to render a ground plane with the 'height map' 
 
 The ground plane is created from a height map and displaced in the vertex shader. The normals of the ground plane are calculated in the geometry shader and passed to the fragment shader for lighting calculations.
 
-The grass is created along each point on the ground plane using a geometry shader and a flow map to simulate wind movement. We can use the shader programs to render more complex objects such as grass. Grass in complex scenes isn't modelled from a 3D mesh, but rather a series of 2D planes called bill-boards. Starting from the tutorial: <https://vulpinii.github.io/tutorials/grass-modelisation/en/> and <https://developer.nvidia.com/gpugems/gpugems/part-i-natural-effects/chapter-7-rendering-countless-blades-waving-grass>.
+Grass in complex scenes isn't modelled from a 3D mesh, but rather a series of 2D planes called bill-boards. Starting from the tutorial: <https://vulpinii.github.io/tutorials/grass-modelisation/en/> and <https://developer.nvidia.com/gpugems/gpugems/part-i-natural-effects/chapter-7-rendering-countless-blades-waving-grass>.
 
-We can simulate wind movement on the grass using a 'flow map', which is a 2D texture that is used to control the movement of the wind. The flow map is used to offset the position of the grass in the geometry shader. Some more info on flow maps: <https://github.com/JaccomoLorenz/godot-flow-map-shader>
-
-Expanding on the grass rendering to use a texture atlas for the grass rendering. This is an efficient way to store multiple textures in a single texture. A texture atlas is a single texture that contains multiple textures. This is useful for rendering multiple objects with different textures in a single draw call. In this example, we use a texture atlas to store multiple grass textures in a 4x4 grid, and then use a shader program to select the correct texture the grass blades.
+The grass is created along each point on the ground plane using a geometry shader and a flow map to simulate wind movement. We can use the shader programs to render more complex objects such as grass. We can simulate wind movement on the grass using a 'flow map', which is a 2D texture that is used to control the movement of the wind. The flow map is used to offset the position of the grass in the geometry shader. Some more info on flow maps: <https://github.com/JaccomoLorenz/godot-flow-map-shader>
 
 In practice, the height map could be procedurally generated or loaded from an image file. The height map is used to displace the vertices of the ground plane in the vertex shader, and this creates the effect of a 3D ground plane.
+
+For optimization we have to divide the terrain into chunks and manage them just as other objects in the scene.
 
 Controls used:
 
