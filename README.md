@@ -2,7 +2,7 @@
 
 _An open exploration of modern 3D rendering in OpenGL and Vulkan._ - Charlie, Nokota Mustang
 
-_**👀 Be an early user on my discord for discussions on OpenGL, Vulkan, 2D/3D Graphics, and game development: <https://discord.gg/Bkhpm8QQ>.**_
+_**👀 Be an early user on my discord for discussions on OpenGL, Vulkan, 2D/3D Graphics, and game development: <https://discord.gg/Bkhpm8QQ>. Otherwise I'll be around the ModernGL discord too.**_
 
 Computer graphics is a vast field, and I am interested in learning more about the rendering process and the mathematics behind it. Having a good grasp of realtime graphics, data structures, and algorithms is essential for game development, simulations, and visualizations in 2D or 3D.
 
@@ -189,7 +189,7 @@ Controls used:
 
 I've combined several techniques to render a ground plane with the 'height map' technique. I have also used 'bill-boards' in the geometry shader to create the flora; and have added the techniques to render a sky and clouds.
 
-![Screenshots](./screenshots/mgl_ground3.png)
+![Screenshots](./screenshots/mgl_terrain_1.png)
 
 The ground plane is created from a height map and displaced in the vertex shader. The normals of the ground plane are calculated in the geometry shader and passed to the fragment shader for lighting calculations.
 
