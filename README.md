@@ -115,7 +115,7 @@ This arrangement makes it possible to create multiple objects later on with thei
 
 If you change the light strength to 0 or turn the lights off with the hotkeys, you will see the resulting illumination in the scene is pitch black. You can play with the albedo, diffuse, and specular properties of the cubes.
 
-This example adds texture mapping to the object mesh of each cube. The texture is a 2D image that is mapped to the surface of the cube using texture coordinates. The texture coordinates are stored in the VBO along with the vertices of the cube. I also added multiple-local lights to the scene and adapt the fragment shader to composite all of this together.
+This example adds texture mapping to the object mesh of each cube. This is an pld trick that create the illusion of detail where there isn't anything other than a bunch of flat triangles. The texture is a 2D image that is mapped to the surface of the cube using texture coordinates. The texture coordinates are stored in the VBO along with the vertices of the cube.
 
 ![Screenshots](./screenshots/mgl_blinn-phong_3.png)
 _Both global illumination and local illumination on._
