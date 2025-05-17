@@ -71,7 +71,7 @@ Each project is a standalone example of a 3D rendering technique or feature work
 
 -   Series 2 will look at full BRDFs including Cook-Torrance and PBR workflows. These are more complex and require a lot of math to understand, but they provide much better results for realistic lighting in games and applications.
 
--   Series 3 is looking at terrain concepts such as height maps, including geometry shaders for billboards, and visual effects with environment maps, and volumetric clouds.
+-   Series 3 is looking at terrain concepts such as height maps, including geometry shaders for billboards, and visual effects with environment maps.
 
 -   Series 4 is a collection of post-processing and other techniques to enhance the visual fidelity, such as anti-aliasing.
 
@@ -309,7 +309,11 @@ Reading:
 
 Reading:
 
--   LearnOpenGL on cube-maps: <https://learnopengl.com/Advanced-OpenGL/Cubemaps>.
+-   LearnOpenGL on cube-maps second part on environment-mapping : <https://learnopengl.com/Advanced-OpenGL/Cubemaps>.
+
+#### py_5.c_volumetric_clouds - Volumetric clouds
+
+**_Demo being built. - Charlie_**
 
 ### Series 6 - Model files
 
