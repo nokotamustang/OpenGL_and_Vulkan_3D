@@ -108,12 +108,14 @@ vec3 directional_light(vec3 N, vec3 V, Light light, vec3 F0) {
   const vec3 D = normalize(light.position - light.direction);
   const vec3 H = normalize(V + D);
 
-  // Shadow
+  // Shadow mapping - find the closest and current depth for this fragment
+  const float current_depth = shadow_coord.z;
+  const float closest_depth = textureProj(shadow_map_tex, shadow_coord);
   // Force shadow off if z is outside the far plane of the frustum
-  const float shadow = mix(textureProj(shadow_map_tex, shadow_coord), 1.0, 1.0 - step(1.0, shadow_coord.z));
+  const float shadow = mix(closest_depth, 1.0, 1.0 - step(1.0, current_depth));
   // ... equivalent of: 
-  // float shadow = textureProj(shadow_map_tex, shadow_coord);
-  // if (shadow_coord.z < 0.0) {
+  // float shadow = closest_depth;
+  // if (current_depth < 0.0) {
   //   shadow = 1.0;
   // }
 

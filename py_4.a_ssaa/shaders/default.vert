@@ -29,6 +29,6 @@ void main() {
     gl_Position = m_proj * m_view * m_model * in_position4;
 
     const mat4 shadow_mvp = m_proj * m_view_global_light * m_model;
-    shadow_coord = m_shadow_bias * shadow_mvp * vec4(in_position, 1.0);
+    shadow_coord = m_shadow_bias * shadow_mvp * in_position4;
     shadow_coord.z += tiny;
 }

@@ -61,8 +61,16 @@ vec3 directional_light(vec3 V, vec3 N, Light light) {
   // Direction vector
   const vec3 D = normalize(light.position - light.direction);
 
-  // Shadow
-  const float shadow = mix(textureProj(shadow_map_tex, shadow_coord), 1.0, 1.0 - step(1.0, shadow_coord.z));
+  // Shadow mapping - find the closest and current depth for this fragment
+  const float current_depth = shadow_coord.z;
+  const float closest_depth = textureProj(shadow_map_tex, shadow_coord);
+  // Force shadow off if z is outside the far plane of the frustum
+  const float shadow = mix(closest_depth, 1.0, 1.0 - step(1.0, current_depth));
+  // ... equivalent of: 
+  // float shadow = closest_depth;
+  // if (current_depth < 0.0) {
+  //   shadow = 1.0;
+  // }
 
   // Radiance for directional lights is the color of the light times its strength
   const vec3 radiance = light.color * light.strength;
