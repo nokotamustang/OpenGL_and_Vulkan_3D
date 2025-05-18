@@ -101,15 +101,6 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(glm)
 
-# Tiny Object Loader
-FetchContent_Declare(
-    tinyobjloader
-    GIT_REPOSITORY https://github.com/tinyobjloader/tinyobjloader.git
-    GIT_TAG v2.0.0rc13
-    GIT_SHALLOW 1
-)
-FetchContent_MakeAvailable(tinyobjloader)
-
 # Add an executable target called <name> to be built from the source files.
 # This is the manual way of adding source files.
 # add_executable(app
@@ -143,5 +134,4 @@ target_link_libraries(app PRIVATE
     # linmath # enable if using as a library see above
     fmt::fmt
     glm::glm
-    tinyobjloader
 )

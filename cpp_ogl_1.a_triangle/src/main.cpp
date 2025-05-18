@@ -1,10 +1,8 @@
-#define GLFW_INCLUDE_NONE
+#define GLFW_INCLUDE_NONE  // This allows the gl.h import to happen afterwards
 #include <GLFW/glfw3.h>
 //
-#define GLAD_GL_IMPLEMENTATION
+#define GLAD_GL_IMPLEMENTATION  // Define this once per project
 #include <glad/gl.h>
-//
-#define TINYOBJLOADER_IMPLEMENTATION
 //
 #include <fmt/color.h>   // fmt::fg, fmt::bg
 #include <fmt/format.h>  // fmt::print
@@ -19,16 +17,11 @@
 #include <vector>                         // std::vector
 
 #include "linmath.h"
-#include "tiny_obj_loader.h"
 
 using fmt::color;
 using fmt::print;
 using std::string;
 using std::vector;
-using tinyobj::attrib_t;
-using tinyobj::material_t;
-using tinyobj::mesh_t;
-using tinyobj::shape_t;
 
 typedef struct Vertex {
     vec2 pos;
@@ -88,8 +81,6 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 // output and then adjust the root path accordingly to "./".
 const string root_path = "../../../../";
 
-const string obj_path = root_path + "assets/smooth_vase.obj";
-
 const int window_w = 1600;
 const int window_h = 900;
 
@@ -114,27 +105,6 @@ int main(void) {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-    // Load an obj file
-    attrib_t attrib;
-    vector<shape_t> shapes;
-    vector<material_t> materials;
-    string warn, err;
-    print("loading obj in : '{}'\n", obj_path.c_str());
-    success = tinyobj::LoadObj(&attrib, &shapes, &materials, &warn, &err,
-                               obj_path.c_str(), nullptr);
-    if (!success) {
-        if (!warn.empty()) {
-            print("{}\n", warn);
-        }
-        if (!err.empty()) {
-            print(stderr, fg(fmt::color::red), "{}\n", err);
-        }
-    } else {
-        print("  # shapes     : {}\n", shapes.size());
-        print("  # materials  : {}\n", materials.size());
-        print("  # vertices   : {}\n", attrib.vertices.size() / 3);
-    }
 
     // Set up GLFW window
     print("window size    : {}x{}\n", window_w, window_h);

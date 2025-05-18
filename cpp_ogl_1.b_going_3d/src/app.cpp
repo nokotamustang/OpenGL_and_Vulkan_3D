@@ -1,11 +1,11 @@
-#define GLFW_INCLUDE_NONE
+#define GLFW_INCLUDE_NONE  // This allows the gl.h import to happen afterwards
 #include <GLFW/glfw3.h>
 //
-#define GLAD_GL_IMPLEMENTATION
+#define GLAD_GL_IMPLEMENTATION  // Define this once per project
 #include <glad/gl.h>
 //
 #include "stb_image.h"
-#define STB_IMAGE_IMPLEMENTATION
+#define STB_IMAGE_IMPLEMENTATION  // Define this after the import, once per project
 //
 #include "app.hpp"
 #include "opengl_glfw/ebo.h"
