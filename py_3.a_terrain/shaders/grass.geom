@@ -71,21 +71,17 @@ void createQuad(vec3 in_pos, mat4 x_model) {
 
 	// Diminish the wind based on LOD levels
 	const float wind_scale = 0.6 + (lod2_dist * 0.25) + (lod3_dist * 0.15);
-	// const float wind_scale = 1.0;
 
 	// Wind calculation using the flow map texture and time
-	vec2 uv = in_pos.xz * 0.1 + windDirection * windStrength * wind_scale * u_time;
+	const float wind_pos_scale = 0.1; // Pulled this out because it's interesting to modify it
+	vec2 uv = in_pos.xz * wind_pos_scale + windDirection * windStrength * u_time * wind_scale;
 	uv.x = mod(uv.x, 1.0);
 	uv.y = mod(uv.y, 1.0);
 	const vec4 wind = texture(u_wind, uv);
 	const mat4 wind_mat = rotationX(wind.x * PI * 0.75 - PI * 0.25) * rotationZ(wind.y * PI * 0.75 - PI * 0.25);
 
-	// The back of the quad will be invisible to the camera, so we rotate the quad with a random amount
-	// to create a complete scene.
-	const mat4 rand_y = rotationY(random(in_pos.zx) * PI); // Random amount
-	// const mat4 rand_y = rotationY(PI); // 180* testing
-	// const mat4 rand_y = mat4(1.0); // None
-
+	// The back of the quad will be invisible to the camera, so we rotate the quad with a random amount to create a complete scene.
+	const mat4 rand_y = rotationY(random(in_pos.zx) * PI);
 	const vec3 normal = vec3(model_wind * rand_y * x_model * vec4(0.0, 1.0, 0.0, 0.0));
 
 	// Quad vertex positions
@@ -141,7 +137,7 @@ void main() {
 	float dist_length = length(in_pos - cam_pos);
 	grass_size = random(in_pos.xz) * grass_scale * (1.0 - grass_min) + grass_min;
 
-	// Mallah LOD calculation:
+	/* I created a custom LOD calculation here - Charlie */
 	float t = 6.0;
 	if (dist_length > LOD1) {
 		t *= 1.5;
@@ -170,7 +166,7 @@ void main() {
 		createQuad(in_pos, model_neg_45);
 	}
 
-	// Original LOD function:
+	/* Original LOD function */
 	// float t = 6.0;
 	// if (dist_length > LOD2)
 	// 	t *= 1.5;
@@ -222,7 +218,6 @@ float noise(in vec2 st) {
 	const float c = random(i + vec2(0.0, 1.0));
 	const float d = random(i + vec2(1.0, 1.0));
 	// Smooth Interpolation
-	// const vec2 u = f * f * (3.0 - 2.0 * f);
 	const vec2 u = smoothstep(0.0, 1.0, f);
 	// Mix 4 percentages
 	return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
@@ -230,9 +225,9 @@ float noise(in vec2 st) {
 
 const vec2 fbm_shift = vec2(100.0);
 const mat2 fbm_rot = mat2(cos(0.5), sin(0.5), -sin(0.5), cos(0.50));
-const int num_octaves = 3; // 5
+const int num_octaves = 3; // 5 was the original suggested value here, more variation and more cost
 float fbm(in vec2 _st) {
-	// Craete variation with Fractal Brownian Motion (between 0 and 1)
+	// Create variation with Fractal Brownian Motion (between 0 and 1)
 	float v = 0.0;
 	float a = 0.5;
 	for (int i = 0; i < num_octaves; ++i) {

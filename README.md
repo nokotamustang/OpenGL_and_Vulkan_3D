@@ -2,7 +2,7 @@
 
 _An open exploration of modern 3D rendering in OpenGL and Vulkan._ - Charlie, Nokota Mustang
 
-_**👀 Be an early user on my discord for discussions on OpenGL, Vulkan, 2D/3D Graphics, and game development: <https://discord.gg/Bkhpm8QQ>. Otherwise I'll be around the ModernGL discord too.**_
+_**👀 Be an early user on my discord for discussions on OpenGL, Vulkan, 2D/3D Graphics, and game development: <https://discord.gg/Bkhpm8QQ>. Otherwise I'll be around the ModernGL discord too. Also note that I'm still building and adding more demos, so check back every once in a while!**_
 
 Computer graphics is a vast field, and I am interested in learning more about the rendering process and the mathematics behind it. Having a good grasp of realtime graphics, data structures, and algorithms is essential for game development, simulations, and visualizations in 2D or 3D.
 
@@ -314,6 +314,10 @@ Reading:
 #### py_5.c_volumetric_clouds - Volumetric clouds
 
 **_Demo being built. - Charlie_**
+
+Reading:
+
+-   Useful resources on volumetric clouds: <https://gist.github.com/pixelsnafu/e3904c49cbd8ff52cb53d95ceda3980e>.
 
 ### Series 6 - Model files
 
