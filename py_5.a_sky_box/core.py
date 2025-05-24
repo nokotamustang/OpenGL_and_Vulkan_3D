@@ -1,3 +1,4 @@
+import os
 import numpy
 import moderngl
 import glm
@@ -268,11 +269,20 @@ class Texture:
         return self.texture_count
 
     def get_texture_cube(self, path, ext='png'):
-        faces = ['right', 'left', 'top', 'bottom'] + ['front', 'back'][::-1]
+        if os.path.exists(f'{path}/bottom.{ext}'):
+            faces = ['right', 'left', 'top', 'bottom'] + ['front', 'back'][::-1]
+            faces_alpha = ['right', 'left', 'front', 'back']
+        elif os.path.exists(f'{path}/ny.{ext}'):
+            faces = ['px', 'nx', 'py', 'ny'] + ['pz', 'nz'][::-1]
+            faces_alpha = ['px', 'nx', 'pz', 'nz']
+        else:
+            print(f"missing texture files: {path}")
+            return 0
+
         textures = []
         for face in faces:
             texture = pygame.image.load(f'{path}/{face}.{ext}').convert()
-            if face in ['right', 'left', 'front', 'back']:
+            if face in faces_alpha:
                 texture = pygame.transform.flip(texture, flip_x=True, flip_y=False)
             else:
                 texture = pygame.transform.flip(texture, flip_x=False, flip_y=True)
@@ -688,6 +698,11 @@ class Scene():
         for light in self.app.lights:
             self.light_source_local.append(LightSource(app, light_source=light))
 
+        # Skybox
+        # self.app.skybox = SkyBox(app)
+        self.app.skybox = SkyBox(app, name="hdr_sky_2k")
+        # self.app.skybox = SkyBox(app, name="hdr_sky_8k")
+
         # Cache the update list
         for obj in self.objects:
             if obj.can_update:
@@ -755,7 +770,7 @@ class Scene():
 
 
 class SkyBox():
-    def __init__(self, app, texture_cube_name='overcast',
+    def __init__(self, app, name='overcast',
                  pos=(0, 0, 0), rot=(0, 0, 0), scale=(1, 1, 1)):
         self.app = app
         self.ctx = app.ctx
@@ -763,7 +778,7 @@ class SkyBox():
         self.rot = glm.vec3([glm.radians(a) for a in rot])
         self.scale = scale
         self.m_model = self.get_model_matrix()
-        textures_path = f"../textures/cube_map/{texture_cube_name}"
+        textures_path = f"../textures/cube_map/{name}"
         self.tex_id = app.texture.get_texture_cube(path=textures_path)
         self.vbo = self.get_vbo()
         self.shader_program = app.shader.get_shader("skybox")

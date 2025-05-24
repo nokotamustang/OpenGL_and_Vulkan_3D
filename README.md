@@ -297,6 +297,8 @@ We will continue in the next demo with environment mapping to create reflections
 ![Screenshots](./screenshots/mgl_skybox_2.png)
 _The cube-map appears seamless. However, in such a simple demo there is no movement of the background and everything is contained inside on texture._
 
+The source images were generated to standard cube map from a HDRI image using this handy website: <https://matheowis.github.io/HDRI-to-CubeMap/>. The original HDRI image used was sourced from: <https://polyhaven.com/hdris/skies>.
+
 In this demo look for the `Skybox` class added to the `core` python code. Instanced in the main app, and used in the render function of the scene class.
 
 Reading:

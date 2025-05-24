@@ -69,12 +69,11 @@ class Engine:
         pygame.time.set_timer(pygame.USEREVENT, 1000 // self.target_fps)
         # Camera
         self.camera = Camera(self, position=(0, 0, 5))
-        # Texture, Shader, Shadow, Prototype, Skybox
+        # Texture, Shader, Shadow, Prototype
         self.texture = Texture(self)
         self.shader = Shader(self)
         self.shadow = Shadow(self)
         self.prototype = Prototype(self)
-        self.skybox = SkyBox(self)
         # Scene of objects (after lights)
         self.scene = Scene(self)
         # Font
