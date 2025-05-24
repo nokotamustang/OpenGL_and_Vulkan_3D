@@ -770,7 +770,7 @@ class Scene():
 
 
 class SkyBox():
-    def __init__(self, app, name='overcast',
+    def __init__(self, app, name='overcast_1k',
                  pos=(0, 0, 0), rot=(0, 0, 0), scale=(1, 1, 1)):
         self.app = app
         self.ctx = app.ctx
