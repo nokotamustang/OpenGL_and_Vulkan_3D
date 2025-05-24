@@ -700,8 +700,8 @@ class Scene():
 
         # Skybox
         # self.app.skybox = SkyBox(app)
-        self.app.skybox = SkyBox(app, name="hdr_sky_2k")
-        # self.app.skybox = SkyBox(app, name="hdr_sky_8k")
+        # self.app.skybox = SkyBox(app, name="hdr_sky_2k")
+        self.app.skybox = SkyBox(app, name="hdr_sky_2_2k")
 
         # Cache the update list
         for obj in self.objects:
