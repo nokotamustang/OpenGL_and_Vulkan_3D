@@ -114,7 +114,7 @@ A quick note on _Physically Based Rendering_ (PBR) which often gets thrown aroun
 
 The modern implementations have moved from ray-tracing to a method named path-tracing, so you can dig into that topic as you wish. Usually these methods are bound to CPU solutions, however as graphics hardware has changed we have seen advancements that can push the some algorithms to GPU hardware in the rendering pipeline or via compute shaders.
 
-I focus on BRDF and real time rendering in these materials, which are pf a different nature. We start with Blinn-Phong and then move to Cook-Torrance.
+I focus on BRDF and real time rendering in these materials, which are of a different nature. We start with Blinn-Phong and then move to Cook-Torrance.
 
 #### py_1.a_blinn-phong - Blinn-Phong
 
