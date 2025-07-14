@@ -257,7 +257,7 @@ Displacement mapping can apply even more detail compared to just bump mapping. T
 ![Screenshots](./screenshots/mgl_disp_5.png)
 _Top: The left has the flat surface for the toy box, then the bump mapped one, and to the right is with both parallax and bump mapping. Middle: Textures disabled, just illumination. Bottom: At a sharp angle the render of the parallax mapping looks impressive even with a deep displacement._
 
-From the guides out there, you can see a progression from parallax displacement, to steep parallax displacement, and then to parallax occlusion displacement. Each advancement makes the result look better.
+From the guides out there, you can see a progression from parallax displacement to steep parallax displacement; and then to parallax occlusion displacement. Each advancement makes the result look better.
 
 In modern development more advanced searching is performed to improve the step noise from the linear search used in the classic parallax occlusion displacement method.
 
@@ -280,9 +280,9 @@ pip install Pillow numpy
 python invert_displacement.py --input ../textures/wood_disp_depth.png --output ../textures/wood_disp_height.png
 ```
 
-Note that online is a minefield when it comes to displacement maps. Some will be in RGB, useless since the information is only stored in one 8 bit channel. Some will provide you a 16 bit single channel image, this will probably contain depth and height, with grey midpoint being flat. You will need to adjust your frag accordingly.
+Note that online is a minefield when it comes to displacement maps. Some will be in RGB, and useless since the needed information is copied 3 times. Some will provide you a 16 bit single channel image, this will probably contain depth and height, with grey midpoint being flat. You will need to adjust your frag accordingly.
 
-I'm sticking with the principles that it is depth information only, where white is equal to the flat surface. this gives a full range contained in an a 8 bit channel.
+I'm sticking with the principles that it is depth information only, where white is equal to the flat surface. this gives a full range contained in a single 8 bit channel.
 
 Reading:
 
