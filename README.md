@@ -118,7 +118,7 @@ I focus on BRDF and real time rendering in these materials, which are of a diffe
 
 #### py_1.a_blinn-phong - Blinn-Phong
 
-This arrived much later from Phong or the extension from Blinn known as Blinn-Phong. They were build in the same manor but predating the notation.
+This illumination calculation arrived much later than Phong, and was built in the same manor as a BRDF but predating the notation.
 
 Blinn's model is an approximate of Phong shading, which had an internal issue rendering reflected light more than 90 degrees from the view and the reflection vectors, that made the light look 'cut-off'. The approximation to use the half-way vector corrected this flaw, producing a more realistic illumination model.
 
