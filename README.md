@@ -287,7 +287,7 @@ I'm sticking with the principles that it is depth information only, where white 
 Reading:
 
 - OpenGL Tutorial with a great write up on parallax occlusion mapping and pit-falls of auto generation of displacement maps <https://www.opengl-tutorial.org/intermediate-tutorials/tutorial-13-normal-mapping/>.
-- ATI pdf from a talk on parallax occlusion mapping <https://web.engr.oregonstate.edu/~mjb/cs557/Projects/Papers/Parallax_Occlusion_Mapping.pdf>.
+- ATI talk on parallax occlusion mapping <https://web.engr.oregonstate.edu/~mjb/cs557/Projects/Papers/Parallax_Occlusion_Mapping.pdf>.
 - ATI paper on parallax occlusion mapping <https://www.realtimerendering.com/advances/s2006/Chapter5-Parallax_Occlusion_Mapping_for_detailed_surface_rendering.pdf>.
 - Siggraph 2015 on dynamic occlusion with signed distance fields (ray march) <https://www.advances.realtimerendering.com/s2015/DynamicOcclusionWithSignedDistanceFields.pdf>.
 - Shader toy on parallax occlusion mapping: <https://www.shadertoy.com/view/XcdXWj>.
