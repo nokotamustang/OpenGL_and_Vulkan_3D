@@ -323,7 +323,7 @@ _The illumination properties are working nicely. We can also cast shadows onto t
 
 The ground plane is created from a height map and displaced in the vertex shader. The normals of the ground plane are calculated in the geometry shader and passed to the fragment shader for lighting calculations.
 
-Grass in complex scenes isn't modelled from a 3D mesh, but rather a series of 2D planes called bill-boards.
+Basic grass in some complex scenes isn't modelled from a 3D mesh, but rather a series of 2D planes called bill-boards.
 
 The grass is created along each point on the ground plane using a geometry shader and a flow map to simulate wind movement. We can use the shader programs to render more complex objects such as grass.
 
@@ -335,6 +335,8 @@ _With only local lights on and textures off, we see the pure light on the normal
 In practice, the height map could be procedurally generated or loaded from an image file. The height map is used to displace the vertices of the ground plane in the vertex shader, and this creates the effect of a 3D ground plane.
 
 For optimization we have to divide the terrain into chunks and manage them just as other objects in the scene.
+
+An advancement to this technique will be to model the grass blades with some depth information and possibly multiple triangles along the blade. The use of these meshes could be activated based on distance. More on this later.
 
 Reading:
 
