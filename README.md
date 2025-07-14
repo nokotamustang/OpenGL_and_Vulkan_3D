@@ -2,8 +2,6 @@
 
 _An open exploration of modern 3D rendering in ModernGL and OpenGL - Dr. Charles Mallah._
 
-`👀 Join my discord for discussions on OpenGL and game development.` <https://discord.gg/Bkhpm8QQ>
-
 The sections in this readme are divided into demo areas like this:
 
 - Python 3.12.10, ModernGL, and Pygame
