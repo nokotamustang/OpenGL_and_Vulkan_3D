@@ -440,7 +440,7 @@ Reading:
 
 ### Series 5 - Environment rendering
 
-How to add depth and visually represent the environment around the scene. This section will start with the humble cube-map, however this will come back into use when we want to optimize our modern volumetric clouds demo.
+How to add depth and visually represent the environment around the scene. This section will start with the humble cube-map, however this will come back into use when we want to optimize my modern volumetric clouds demo.
 
 #### py_5.a_skybox - Simple old-school skybox
 
