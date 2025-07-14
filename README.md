@@ -296,7 +296,7 @@ Reading:
 
 #### py_2.d_better_displacement - Smoother displacement mapping
 
-Adding complexity to the search will give better results. I've tried a variety of ideas in this demo, and have settled it to a cleaned up linear search with several additional steps.
+Adding complexity to the occlusion search will give better results. I've tried a variety of ideas in this demo, and have settled it to a cleaned up linear search with several additional steps.
 
 ![Screenshots](./screenshots/mgl_better_disp_1.png)
 _Improved height intersection search that smooths the steeper areas very handily without too much extra overhead._
@@ -307,7 +307,7 @@ The method is similar to the linear search but has more areas of work:
 - Binary search for refinement of the intersection point (4 iterations).
 - Offset limiting to adjust over-displacement.
 - Secant interpolation for smoothness.
-- Contain in height-map bounds.
+- Contain everything in height-map bounds.
 
 ### Series 3 - Terrain rendering
 
