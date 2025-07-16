@@ -442,7 +442,7 @@ Reading:
 
 How to add depth and visually represent the environment around the scene. This section will start with the humble cube-map, however this will come back into use when we want to optimize my modern volumetric clouds demo.
 
-#### py_5.a_skybox - Simple old-school skybox
+#### py_5.a_skybox - The cube map
 
 The classic skybox is a set of 6 textures arranged as if inside a cube; interestingly the cube-map textures can be converted from a 360 degree parallax image.
 
@@ -476,7 +476,7 @@ _First the test sky box shows the reflection of the BACK face of the test cube m
 
 ![Screenshots](./screenshots/mgl_env_map_2.png)
 ![Screenshots](./screenshots/mgl_env_map_3.png)
-_With the local lights turned off, shows the mixing keeps all lighting and shadows as before demos in this repo. With all lights on, just shows the different surface interactions with the local lights. In this example the reflection seems more subtle due to to more sparse cloud coverage._
+_The local lights are turned off (top). With all lights on (bottom)._
 
 In the default shader, I wrote a new section for the reflectivity, look for the skybox_reflection value. I have decided to mix this into the texture color, which means that a value of 1.0 would effectively replace the texture.
 
