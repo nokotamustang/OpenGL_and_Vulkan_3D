@@ -1,6 +1,6 @@
 # ModernGL and OpenGL API graphics rendering
 
-_An open exploration of modern 3D rendering in ModernGL and OpenGL - Dr. Charles Mallah._
+_An open exploration of modern 3D GPU API rendering in ModernGL and OpenGL - Dr. Charles Mallah._
 
 The sections in this readme are divided into demo areas like this:
 
