@@ -464,7 +464,7 @@ Reading:
 
 #### py_5.b_env_map - Environment mapping
 
-So this is interesting, because OpenGL has reflect and refractive functions available in the shades. They are easy to call and use to calculate the ray that hits the cube map, reflected from the source to the surface normal.
+So this is interesting, because OpenGL has reflect and refractive functions available in the shaders. They are easy to call and use to calculate the ray that hits the cube map, reflected from the source to the surface normal.
 
 ![Screenshots](./screenshots/mgl_env_map_4.png)
 _Creating a reflective material property and applying it with the sky box gives nice results._
