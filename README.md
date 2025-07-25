@@ -7,7 +7,7 @@ The sections in this readme are divided into demo areas like this:
 - Python 3.12.10, ModernGL, and Pygame
 - OpenGL C++23, Cmake 4.0, and GLFW
 
-In each division, I've written a summary of the code eco-system and setup guide for newbies; then a series of subsections with code demonstrations of techniques with an associated code folder provided in this repo for you to explore.
+In each division I've written a summary of the code eco-system and setup guide for newbies; then a series of subsections with code demonstrations of techniques with an associated code folder provided in this repo.
 
 It is accessible to skip to what section you want to read, however It might be better to stick around and work through the whole doc; I leave that up to you and am grateful for your time.
 
@@ -118,7 +118,7 @@ I focus on BRDF and real time rendering in these materials, which are of a diffe
 
 #### py_1.a_blinn-phong - Blinn-Phong
 
-This illumination calculation arrived much later than Phong, and was built in the same manor as a BRDF but predating the notation.
+This illumination calculation arrived much later than Phong, and built as a BRDF despite predating the notation.
 
 Blinn's model is an approximate of Phong shading, which had an internal issue rendering reflected light more than 90 degrees from the view and the reflection vectors, that made the light look 'cut-off'. The approximation to use the half-way vector corrected this flaw, producing a more realistic illumination model.
 
@@ -218,7 +218,7 @@ Reading:
 
 This technique specifically applies to surfaces with per frag textures, known as normal maps.
 
-With some mathematical computation in the tangent space, you can easily prepare the needed values for the bump mapping effect.
+With computation in the tangent space, you can easily precalculate the values for bump mapping.
 
 ![Screenshots](./screenshots/mgl_bump_1.png)
 ![Screenshots](./screenshots/mgl_bump_2.png)
@@ -233,7 +233,7 @@ This is a super handy way of computing the tangent and bi-tangent and ship them 
 A note on normal map formats since there are two different ones: the DirectX and OpenGL formats. In the textures folder I have an example of each in the `brick_bump.dx.png` and `brick_bump.gl.png` images, for example.
 
 ![Screenshots](./screenshots/dx_gl_normals.png)
-_Top of the partition: the DX format for normals, bottom is GL format. You can tell the difference by where the light green hues are._
+_Top of the partition: the DX format for normals, bottom is GL format. Notice where the light green hues are._
 
 In the `/tools/convert_dx_normal.py` script you can convert from DX to GL format with a simple python tool I wrote. It simply inverts the y-component (green channel) of the image.
 
@@ -250,7 +250,7 @@ Reading:
 
 #### py_2.c_displacement_maps - Displacement mapping
 
-Displacement mapping can apply even more detail compared to just bump mapping. The surfaces can be processing per frag to modify the texture coordinates taking into account the view vector from the camera and the fragment position.
+Displacement mapping can apply even more detail compared to only bump mapping. Surfaces can be processed per frag to modify the texture coordinates, taking into account the view vector and the fragment position.
 
 ![Screenshots](./screenshots/mgl_disp_1.png)
 ![Screenshots](./screenshots/mgl_disp_2.png)
@@ -323,7 +323,7 @@ _The illumination properties are working nicely. We can also cast shadows onto t
 
 The ground plane is created from a height map and displaced in the vertex shader. The normals of the ground plane are calculated in the geometry shader and passed to the fragment shader for lighting calculations.
 
-Basic grass in some complex scenes isn't modelled from a 3D mesh, but rather a series of 2D planes called bill-boards.
+Basic grass in some complex scenes isn't modelled from 3D meshes, but 2D planes called bill-boards.
 
 The grass is created along each point on the ground plane using a geometry shader and a flow map to simulate wind movement. We can use the shader programs to render more complex objects such as grass.
 
