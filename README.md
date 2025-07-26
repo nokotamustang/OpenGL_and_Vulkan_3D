@@ -226,7 +226,7 @@ _The left has the flat surface, right is with bump mapping. Disabling the textur
 
 Look for the T, B, and N matrix space calculations in `default.vert`, and then the application of this onto the bump map xyz values in `default.frag`.
 
-In order to apply the tangent space matrices to apply the bump to the bump map texture correctly, we must provide the tangent values to the normals. This is easier to precompute as show in the `compute_tangents` function in the core.
+In order to apply the tangent space matrices to apply the bump to the bump map texture correctly, we must provide the tangent values to the normals. This is easier to precompute as shown in the `compute_tangents` function in the core.
 
 This is a super handy way of computing the tangent and bi-tangent and ship them with the VBO. In the case of a model file these could be provided. Joey from LearnOpenGL has a great section on this.
 
