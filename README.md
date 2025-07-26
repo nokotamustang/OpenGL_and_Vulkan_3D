@@ -4,14 +4,14 @@ _An open exploration of modern 3D GPU API rendering in ModernGL and OpenGL - Dr.
 
 The sections in this readme are divided into demo areas like this:
 
-- Python 3.12.10, ModernGL, and Pygame
+- Python 3.13.5, ModernGL, and Pygame
 - OpenGL C++23, Cmake 4.0, and GLFW
 
 In each division I've written a summary of the code eco-system and setup guide for newbies; then a series of subsections with code demonstrations of techniques with an associated code folder provided in this repo.
 
 It is accessible to skip to what section you want to read, however It might be better to stick around and work through the whole doc; I leave that up to you and am grateful for your time.
 
-## Python 3.12.10, ModernGL, and Pygame
+## Python 3.13.5, ModernGL, and Pygame
 
 Python is simple to configure with pip, and the ModernGL library wraps OpenGL in Python.
 
@@ -41,7 +41,7 @@ To setup your python environment follow these steps:
 
 4. To run an example use `python main.py` from any of the project sub-directories.
 
-Each project is a standalone example of a 3D rendering technique or feature working with Python 3.12.10. Some projects are combined to create a complex scene. Each project is self-contained and can run independently:
+Each project is a standalone example of a 3D rendering technique or feature working with Python 3.13.5. Some projects are combined to create a complex scene. Each project is self-contained and can run independently:
 
 - Series 1 will follow Blinn-Phong illumination, for basic illumination principles.
 
