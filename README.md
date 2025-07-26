@@ -4,14 +4,14 @@ _An open exploration of modern 3D GPU API rendering in ModernGL and OpenGL - Dr.
 
 The sections in this readme are divided into demo areas like this:
 
-- Python 3.13.5, ModernGL, and Pygame
-- OpenGL C++23, Cmake 4.0, and GLFW
+-   Python 3.12.10, ModernGL, and Pygame
+-   OpenGL C++23, Cmake 4.0, and GLFW
 
 In each division I've written a summary of the code eco-system and setup guide for newbies; then a series of subsections with code demonstrations of techniques with an associated code folder provided in this repo.
 
 It is accessible to skip to what section you want to read, however It might be better to stick around and work through the whole doc; I leave that up to you and am grateful for your time.
 
-## Python 3.13.5, ModernGL, and Pygame
+## Python 3.12.10, ModernGL, and Pygame
 
 Python is simple to configure with pip, and the ModernGL library wraps OpenGL in Python.
 
@@ -20,8 +20,9 @@ Since the base module is compiled in C, the python wrapper provided by ModernGL 
 Pygame is a set of Python modules designed for video games. It includes graphics and sound libraries designed to be used with the Python. This with ModernGL make a perfect pair of libraries to create 3D graphics and games in Python.
 
 Worth noting that you can use `pybind11` or `boost.python` to wrap around c++ code, we will explore this later on:
-- <https://pybind11.readthedocs.io/en/stable/index.html>
-- <https://www.boost.org/doc/libs/1_58_0/libs/python/doc/>
+
+-   <https://pybind11.readthedocs.io/en/stable/index.html>
+-   <https://www.boost.org/doc/libs/1_58_0/libs/python/doc/>
 
 To setup your python environment follow these steps:
 
@@ -41,34 +42,34 @@ To setup your python environment follow these steps:
 
 4. To run an example use `python main.py` from any of the project sub-directories.
 
-Each project is a standalone example of a 3D rendering technique or feature working with Python 3.13.5. Some projects are combined to create a complex scene. Each project is self-contained and can run independently:
+Each project is a standalone example of a 3D rendering technique or feature working with Python 3.12.10. Some projects are combined to create a complex scene. Each project is self-contained and can run independently:
 
-- Series 1 will follow Blinn-Phong illumination, for basic illumination principles.
+-   Series 1 will follow Blinn-Phong illumination, for basic illumination principles.
 
-- Series 2 will look at full BRDFs including Cook-Torrance and BRDF workflows; and detail enhance techniques that are work load friendly.
+-   Series 2 will look at full BRDFs including Cook-Torrance and BRDF workflows; and detail enhance techniques that are work load friendly.
 
-- Series 3 looks at terrain concepts such as height maps, geometry shaders for billboards, and chunking.
+-   Series 3 looks at terrain concepts such as height maps, geometry shaders for billboards, and chunking.
 
-- Series 4 looks at post-processing and other techniques to enhance the visual fidelity, such as anti-aliasing.
+-   Series 4 looks at post-processing and other techniques to enhance the visual fidelity, such as anti-aliasing.
 
-- Series 5 for environment effects from simple skybox cube-maps to environment mapping, and volumetric clouds.
+-   Series 5 for environment effects from simple skybox cube-maps to environment mapping, and volumetric clouds.
 
-- Series 6 will look at model such as `obj`, and how to import and work with them.
+-   Series 6 will look at model such as `obj`, and how to import and work with them.
 
-- Series 7 for techniques to improve render times and increase efficiency.
+-   Series 7 for techniques to improve render times and increase efficiency.
 
 Geneal controls used:
 
-- `ESC` - Exit
-- `F1` - Toggle Pause time
-- `F3` - Toggle view of wire-frames
-- `F11` - Toggle full screen
-- `WASD` - [Forward, Left, Backward, Right] flying camera movement
-- `Mouse Move` - camera look movement
-- Press `f` to toggle the flash light.
-- Press `F2` to toggle the global light source.
-- Press `F4` to toggle local light sources.
-- Press `F5` to toggle local texture blend.
+-   `ESC` - Exit
+-   `F1` - Toggle Pause time
+-   `F3` - Toggle view of wire-frames
+-   `F11` - Toggle full screen
+-   `WASD` - [Forward, Left, Backward, Right] flying camera movement
+-   `Mouse Move` - camera look movement
+-   Press `f` to toggle the flash light.
+-   Press `F2` to toggle the global light source.
+-   Press `F4` to toggle local light sources.
+-   Press `F5` to toggle local texture blend.
 
 ### Moderngl window and GPU
 
@@ -128,13 +129,13 @@ _With only global lights on the shadows are pitch black. The global light at thi
 
 This demo creates a cube mesh from scratch, reuses it as bound to a vertex array object with a vert and frag shader program. I combined multiple rendering techniques in this example:
 
-- I apply the illumination model described by the _Blinn-Phong_ model from 1975.
+-   I apply the illumination model described by the _Blinn-Phong_ model from 1975.
 
-- Global illumination as a directional light, local illumination as point lights and spot lights.
+-   Global illumination as a directional light, local illumination as point lights and spot lights.
 
-- Shadow map generation for the shadows cast from the global light.
+-   Shadow map generation for the shadows cast from the global light.
 
-- Organized parameters where the lights have strength and color, and the cube objects have a material definition of albedo, diffuse, and specular properties, in addition to texture map.
+-   Organized parameters where the lights have strength and color, and the cube objects have a material definition of albedo, diffuse, and specular properties, in addition to texture map.
 
 ![Screenshots](./screenshots/mgl_blinn-phong_2.png)
 _With only local point lights on, the effect of those lights are stronger on the scene; however, they have strength attenuation so do not produce a strong effect on the materials without increasing the light strengths._
@@ -163,11 +164,11 @@ _With the global and point lights off and the flash light on._
 
 Reading:
 
-- LearnOpenGL on lighting: <https://learnopengl.com/Lighting/Colors>.
-- LearnOpenGL on advanced lighting and Blinn-Phong: <https://learnopengl.com/Advanced-Lighting/Advanced-Lighting>.
-- LearnOpenGL on shadow-maps: <https://learnopengl.com/Advanced-Lighting/Shadows/Shadow-Mapping>.
-- On Blinn-Phong <https://interplayoflight.wordpress.com/2013/12/23/an-educational-normalised-blinn-phong-shader/>.
-- On shadow mapping: <https://www.opengl-tutorial.org/intermediate-tutorials/tutorial-16-shadow-mapping/>.
+-   LearnOpenGL on lighting: <https://learnopengl.com/Lighting/Colors>.
+-   LearnOpenGL on advanced lighting and Blinn-Phong: <https://learnopengl.com/Advanced-Lighting/Advanced-Lighting>.
+-   LearnOpenGL on shadow-maps: <https://learnopengl.com/Advanced-Lighting/Shadows/Shadow-Mapping>.
+-   On Blinn-Phong <https://interplayoflight.wordpress.com/2013/12/23/an-educational-normalised-blinn-phong-shader/>.
+-   On shadow mapping: <https://www.opengl-tutorial.org/intermediate-tutorials/tutorial-16-shadow-mapping/>.
 
 ### Series 2 - Advanced BRDF illumination
 
@@ -196,23 +197,23 @@ _Point blank flashlight produces a nice effect from the metallic surfaces._
 
 In summary the Cook-Torrance BRDF combines these components:
 
-- A diffuse component for scattered, non-directional reflection (e.g., matte surfaces).
+-   A diffuse component for scattered, non-directional reflection (e.g., matte surfaces).
 
-- A specular component for directional, glossy reflections, modeled using micro-facet theory.
+-   A specular component for directional, glossy reflections, modeled using micro-facet theory.
 
 Generally, and in this demo, the Cook-Torrance method uses a diffuse Lambertian component and a specular component driven by three terms:
 
-- Beckmann micro-facet distribution.
+-   Beckmann micro-facet distribution.
 
-- Fresnel reflectance.
+-   Fresnel reflectance.
 
-- Geometry shadowing/masking.
+-   Geometry shadowing/masking.
 
 Reading:
 
-- LearnOpenGL on Cook-Torrance: <https://learnopengl.com/PBR/Theory>.
-- Cook-Torrance theory: <http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx>.
-- LearnOpenGL on shadow-maps: <https://learnopengl.com/Advanced-Lighting/Shadows/Shadow-Mapping>.
+-   LearnOpenGL on Cook-Torrance: <https://learnopengl.com/PBR/Theory>.
+-   Cook-Torrance theory: <http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx>.
+-   LearnOpenGL on shadow-maps: <https://learnopengl.com/Advanced-Lighting/Shadows/Shadow-Mapping>.
 
 #### py_2.b_bump_maps - Bump mapping
 
@@ -238,6 +239,7 @@ _Top of the partition: the DX format for normals, bottom is GL format. Notice wh
 In the `/tools/convert_dx_normal.py` script you can convert from DX to GL format with a simple python tool I wrote. It simply inverts the y-component (green channel) of the image.
 
 A usage example from the tools folder is:
+
 ```BAT
 pip install Pillow numpy
 python dx_to_gl.py --input ../textures/wood_bump_dx.png --output ../textures/wood_bump_gl.png
@@ -245,8 +247,8 @@ python dx_to_gl.py --input ../textures/wood_bump_dx.png --output ../textures/woo
 
 Reading:
 
-- OpenGL tutorial on normal mapping: <https://www.opengl-tutorial.org/intermediate-tutorials/tutorial-13-normal-mapping/>.
-- LearnOpenGL on normal mapping: <https://learnopengl.com/Advanced-Lighting/Normal-Mapping>.
+-   OpenGL tutorial on normal mapping: <https://www.opengl-tutorial.org/intermediate-tutorials/tutorial-13-normal-mapping/>.
+-   LearnOpenGL on normal mapping: <https://learnopengl.com/Advanced-Lighting/Normal-Mapping>.
 
 #### py_2.c_displacement_maps - Displacement mapping
 
@@ -286,13 +288,13 @@ I'm sticking with the principles that it is depth information only, where white 
 
 Reading:
 
-- OpenGL Tutorial with a great write up on parallax occlusion mapping and pit-falls of auto generation of displacement maps <https://www.opengl-tutorial.org/intermediate-tutorials/tutorial-13-normal-mapping/>.
-- ATI talk on parallax occlusion mapping <https://web.engr.oregonstate.edu/~mjb/cs557/Projects/Papers/Parallax_Occlusion_Mapping.pdf>.
-- ATI paper on parallax occlusion mapping <https://www.realtimerendering.com/advances/s2006/Chapter5-Parallax_Occlusion_Mapping_for_detailed_surface_rendering.pdf>.
-- Siggraph 2015 on dynamic occlusion with signed distance fields (ray march) <https://www.advances.realtimerendering.com/s2015/DynamicOcclusionWithSignedDistanceFields.pdf>.
-- Shader toy on parallax occlusion mapping: <https://www.shadertoy.com/view/XcdXWj>.
-- Nvidia: <https://developer.nvidia.com/gpugems/gpugems2/part-i-geometric-complexity/chapter-8-pixel-displacement-mapping-distance-functions>.
-- LearnOpenGL: <https://learnopengl.com/Advanced-Lighting/Parallax-Mapping>.
+-   OpenGL Tutorial with a great write up on parallax occlusion mapping and pit-falls of auto generation of displacement maps <https://www.opengl-tutorial.org/intermediate-tutorials/tutorial-13-normal-mapping/>.
+-   ATI talk on parallax occlusion mapping <https://web.engr.oregonstate.edu/~mjb/cs557/Projects/Papers/Parallax_Occlusion_Mapping.pdf>.
+-   ATI paper on parallax occlusion mapping <https://www.realtimerendering.com/advances/s2006/Chapter5-Parallax_Occlusion_Mapping_for_detailed_surface_rendering.pdf>.
+-   Siggraph 2015 on dynamic occlusion with signed distance fields (ray march) <https://www.advances.realtimerendering.com/s2015/DynamicOcclusionWithSignedDistanceFields.pdf>.
+-   Shader toy on parallax occlusion mapping: <https://www.shadertoy.com/view/XcdXWj>.
+-   Nvidia: <https://developer.nvidia.com/gpugems/gpugems2/part-i-geometric-complexity/chapter-8-pixel-displacement-mapping-distance-functions>.
+-   LearnOpenGL: <https://learnopengl.com/Advanced-Lighting/Parallax-Mapping>.
 
 #### py_2.d_better_displacement - Smoother displacement mapping
 
@@ -302,12 +304,13 @@ Adding complexity to the occlusion search will give better results. I've tried a
 _Improved height intersection search that smooths the steeper areas very handily without too much extra overhead._
 
 The method is similar to the linear search but has more areas of work:
-- Including gradient texture sampling for smooth texture reading.
-- Linear search (iteration scale with V as before).
-- Binary search for refinement of the intersection point (4 iterations).
-- Offset limiting to adjust over-displacement.
-- Secant interpolation for smoothness.
-- Contain everything in height-map bounds.
+
+-   Including gradient texture sampling for smooth texture reading.
+-   Linear search (iteration scale with V as before).
+-   Binary search for refinement of the intersection point (4 iterations).
+-   Offset limiting to adjust over-displacement.
+-   Secant interpolation for smoothness.
+-   Contain everything in height-map bounds.
 
 ### Series 3 - Terrain rendering
 
@@ -327,7 +330,7 @@ Basic grass in some complex scenes isn't modelled from 3D meshes, but 2D planes 
 
 The grass is created along each point on the ground plane using a geometry shader and a flow map to simulate wind movement. We can use the shader programs to render more complex objects such as grass.
 
-The wind movement on the grass is simulated using a 'flow map', which is a 2D texture that is used to control the movement of the wind. The flow map is used to offset the position of the grass in the geometry shader. 
+The wind movement on the grass is simulated using a 'flow map', which is a 2D texture that is used to control the movement of the wind. The flow map is used to offset the position of the grass in the geometry shader.
 
 ![Screenshots](./screenshots/mgl_terrain_2.png)
 _With only local lights on and textures off, we see the pure light on the normals of the billboards._
@@ -340,12 +343,12 @@ An advancement to this technique will be to model the grass blades with some dep
 
 Reading:
 
-- Terrain mesh and height-map: <https://blogs.igalia.com/itoral/2016/10/13/opengl-terrain-renderer-rendering-the-terrain-mesh/>.
-- Grass with wind implementation: <https://vulpinii.github.io/tutorials/grass-modelisation/en/>.
-- GPU gems on grass: <https://developer.nvidia.com/gpugems/gpugems/part-i-natural-effects/chapter-7-rendering-countless-blades-waving-grass>.
-- Billboard tutorial: <https://vulpinii.github.io/tutorials/grass-modelisation/en/>.
-- GPU Gems: <https://developer.nvidia.com/gpugems/gpugems/part-i-natural-effects/chapter-7-rendering-countless-blades-waving-grass>.
-- On flow maps: <https://github.com/JaccomoLorenz/godot-flow-map-shader>.
+-   Terrain mesh and height-map: <https://blogs.igalia.com/itoral/2016/10/13/opengl-terrain-renderer-rendering-the-terrain-mesh/>.
+-   Grass with wind implementation: <https://vulpinii.github.io/tutorials/grass-modelisation/en/>.
+-   GPU gems on grass: <https://developer.nvidia.com/gpugems/gpugems/part-i-natural-effects/chapter-7-rendering-countless-blades-waving-grass>.
+-   Billboard tutorial: <https://vulpinii.github.io/tutorials/grass-modelisation/en/>.
+-   GPU Gems: <https://developer.nvidia.com/gpugems/gpugems/part-i-natural-effects/chapter-7-rendering-countless-blades-waving-grass>.
+-   On flow maps: <https://github.com/JaccomoLorenz/godot-flow-map-shader>.
 
 ### Series 4 - Anti-aliasing
 
@@ -353,11 +356,11 @@ Without anti-aliasing (AA), the straight edges of objects appear jagged because 
 
 The popular techniques have trade-offs between quality and performance:
 
-- MSAA (Multi-Sample Anti-Aliasing) is a cheaper form of SSAA. Instead of going through the process of sampling every pixel, MSAA only comes into play where aliasing could become an issue such as an edge.
+-   MSAA (Multi-Sample Anti-Aliasing) is a cheaper form of SSAA. Instead of going through the process of sampling every pixel, MSAA only comes into play where aliasing could become an issue such as an edge.
 
-- FXAA (Fast Approximate Anti-Aliasing) is a post-processing technique. It is a fast and efficient way to smooth out the edges but it can produce artifacts and blurring.
+-   FXAA (Fast Approximate Anti-Aliasing) is a post-processing technique. It is a fast and efficient way to smooth out the edges but it can produce artifacts and blurring.
 
-- TAA (Temporal Anti-Aliasing) uses information from previous frames to smooth out the edges by blending pixel information. It produces average results with blurring, but computationally cheaper than other methods.
+-   TAA (Temporal Anti-Aliasing) uses information from previous frames to smooth out the edges by blending pixel information. It produces average results with blurring, but computationally cheaper than other methods.
 
 #### py_4.1_msaa - Multi-sample anti-aliasing
 
@@ -375,7 +378,7 @@ _Multi-samples set to 32x for comparison._
 
 Reading:
 
-- LearnOpenGL on anti-aliasing with MSAA: <https://learnopengl.com/Advanced-OpenGL/Anti-Aliasing>.
+-   LearnOpenGL on anti-aliasing with MSAA: <https://learnopengl.com/Advanced-OpenGL/Anti-Aliasing>.
 
 #### py_4.b_fxaa - Fast approximate anti-aliasing
 
@@ -396,9 +399,9 @@ This example serves another use for our learning: we can use the post processing
 
 Reading:
 
-- Siggraph 2011 presentation: <http://iryoku.com/aacourse/downloads/09-FXAA-3.11-in-15-Slides.pptx>.
-- Source examples for FXAA 3.11: <https://github.com/mattdesl/glsl-fxaa/blob/master/fxaa.glsl>.
-- And <https://github.com/McNopper/OpenGL/blob/master/Example42/shader/fxaa.frag.glsl>.
+-   Siggraph 2011 presentation: <http://iryoku.com/aacourse/downloads/09-FXAA-3.11-in-15-Slides.pptx>.
+-   Source examples for FXAA 3.11: <https://github.com/mattdesl/glsl-fxaa/blob/master/fxaa.glsl>.
+-   And <https://github.com/McNopper/OpenGL/blob/master/Example42/shader/fxaa.frag.glsl>.
 
 #### py_4.c_taa - Temporal anti-aliasing
 
@@ -416,8 +419,8 @@ Final complaint, the idea of blurring the simulation to then apply edge sharpeni
 
 Reading:
 
-- On TAA from Epic: <https://de45xmedrsdbp.cloudfront.net/Resources/files/TemporalAA_small-59732822.pdf>.
-- Writeup from Sugu Lee: <https://sugulee.wordpress.com/2021/06/21/temporal-anti-aliasingtaa-tutorial/>.
+-   On TAA from Epic: <https://de45xmedrsdbp.cloudfront.net/Resources/files/TemporalAA_small-59732822.pdf>.
+-   Writeup from Sugu Lee: <https://sugulee.wordpress.com/2021/06/21/temporal-anti-aliasingtaa-tutorial/>.
 
 #### py_4.d_ssaa - Super-sampling anti-aliasing
 
@@ -427,8 +430,8 @@ SSAA is a spatial anti-aliasing method that renders a scene at a higher resoluti
 
 Reading:
 
-- SSAA compared to MSAA + FXAA: <https://www.sapphirenation.net/anti-aliasing-comparison-performance-quality>.
-- 3DFX white paper: <http://www.x86-secret.com/articles/divers/v5-6000/datasheets/FSAA.pdf>.
+-   SSAA compared to MSAA + FXAA: <https://www.sapphirenation.net/anti-aliasing-comparison-performance-quality>.
+-   3DFX white paper: <http://www.x86-secret.com/articles/divers/v5-6000/datasheets/FSAA.pdf>.
 
 #### py_4.e_smaa - Subpixel morphological anti-aliasing
 
@@ -436,7 +439,7 @@ Reading:
 
 Reading:
 
-- Computer Graphics Forum, Vol. 31(2), Eurographics 2012: <https://www.iryoku.com/smaa/>.
+-   Computer Graphics Forum, Vol. 31(2), Eurographics 2012: <https://www.iryoku.com/smaa/>.
 
 ### Series 5 - Environment rendering
 
@@ -460,7 +463,7 @@ In this demo look for the `Skybox` class added to the `core` python code. It is 
 
 Reading:
 
-- LearnOpenGL on cube-maps: <https://learnopengl.com/Advanced-OpenGL/Cubemaps>.
+-   LearnOpenGL on cube-maps: <https://learnopengl.com/Advanced-OpenGL/Cubemaps>.
 
 #### py_5.b_env_map - Environment mapping
 
@@ -494,7 +497,7 @@ This does mean if we turn the global light off, the skybox will be pitch black w
 
 Reading:
 
-- LearnOpenGL on cube-maps second part on environment-mapping : <https://learnopengl.com/Advanced-OpenGL/Cubemaps>.
+-   LearnOpenGL on cube-maps second part on environment-mapping : <https://learnopengl.com/Advanced-OpenGL/Cubemaps>.
 
 #### py_5.c_volumetric_clouds - Volumetric clouds
 
@@ -502,7 +505,7 @@ Reading:
 
 Reading:
 
-- Useful resources on volumetric clouds: <https://gist.github.com/pixelsnafu/e3904c49cbd8ff52cb53d95ceda3980e>.
+-   Useful resources on volumetric clouds: <https://gist.github.com/pixelsnafu/e3904c49cbd8ff52cb53d95ceda3980e>.
 
 ### Series 6 - Model files
 
@@ -543,10 +546,10 @@ _So far just a simple demo but this will be rewritten to use the full cube and i
 
 Reading:
 
-- Learn OpenGL on deferred shading: <https://learnopengl.com/advanced-lighting/deferred-shading>.
-- A primer on efficient rendering: <https://www.aortiz.me/2018/12/21/CG.html#forward-shading>.
-- Valve developer community on Deferred renderer: <https://developer.valvesoftware.com/wiki/Deferred_renderer>.
-- Leif Node on tiled deferred rendering: <https://leifnode.com/2015/05/tiled-deferred-shading/>. 
+-   Learn OpenGL on deferred shading: <https://learnopengl.com/advanced-lighting/deferred-shading>.
+-   A primer on efficient rendering: <https://www.aortiz.me/2018/12/21/CG.html#forward-shading>.
+-   Valve developer community on Deferred renderer: <https://developer.valvesoftware.com/wiki/Deferred_renderer>.
+-   Leif Node on tiled deferred rendering: <https://leifnode.com/2015/05/tiled-deferred-shading/>.
 
 ## OpenGL C++23, Cmake 4.0, and GLFW
 
@@ -573,7 +576,7 @@ Here is how you can setup a new project, or continue reading for a description o
     - A `src/main.cpp` file to start your application.
 
     - An `external` directory for any external libraries you need. Note that I have placed this one level up from the root of each project so that it can be shared across multiple projects.
-    
+
     - This is the same for the `asset` directory, which you will use to store assets like textures and models. You can place this inside the root if you like, but remember this when you are configuring your build.
 
 2. You will need to install Cmake 4.0.x: <https://cmake.org/download/>, and add the bin folder to your _PATH_, for example I have added `C:\Cmake\bin` to my PATH.
