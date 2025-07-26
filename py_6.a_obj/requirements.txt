@@ -2,3 +2,4 @@ moderngl
 pygame
 PyGLM
 pywavefront
+numpy

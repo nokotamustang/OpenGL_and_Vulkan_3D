@@ -1,3 +1,4 @@
 moderngl
 pygame
 PyGLM
+numpy
