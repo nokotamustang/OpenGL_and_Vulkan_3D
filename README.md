@@ -154,7 +154,7 @@ A two pass rendering system is used to create shadows in the scene. The first pa
 
 I have included several local point light sources in this demo. The point lights can blend into the casted shadows, which is why you see some color on the floor and the cubes when they are in shadow.
 
-The flash light can be switched on, which is modelled as a spot-light with the direction set to the camera. A technique to soften the edges is used by providing two angles of the light, as the inner and outer angles. Without added a shadow map for each desired light, it is not possible to add multiple casted shadows.
+The flash light can be switched on, which is modelled as a spot-light with the direction set to the camera. A technique to soften the edges is used by providing two angles of the light, as the inner and outer angles. Without adding a shadow map for each desired light, it is not possible to add multiple casted shadows.
 
 ![Screenshots](./screenshots/mgl_blinn-phong_4.png)
 _With the global and point lights off and the flash light on._
