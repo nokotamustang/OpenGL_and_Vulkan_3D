@@ -548,6 +548,8 @@ Reading:
 Each project is a standalone example working with C++23 GNU, and CMake 4.
 If you know what to do and don't need any flavour then skip down to the projects; otherwise if you want tips for Windows development then read on.
 
+I'm very behind on porting stuff from the ModernGL side to C++ because I'm still working on new things over there.
+
 I have used the modern _FetchContent_ feature from CMake to pull the libraries from their respective repositories where possible in these projects. As of now, GLAD is provided pre-configured. I have OpenGL at core 4.6, therefore these files are added to the `external` directory of the project.
 
 The _Khronos OpenGL Specification_ is available in pdf:
