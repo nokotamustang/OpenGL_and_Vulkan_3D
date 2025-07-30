@@ -27,7 +27,7 @@ Worth noting that you can use `pybind11` or `boost.python` to wrap around c++ co
 
 To setup your python environment follow these steps:
 
-1. Download Python: <https://www.python.org/downloads/release/python-3133/> and extract to a directory and add the bin path to your system PATH; I use `c:/python/bin`.
+1. Download Python: <https://www.python.org/downloads/windows/> and extract to a directory and add the bin path to your system PATH; I use `c:/python/bin`.
 
 2. In a console enter `pip install -r requirements.txt`, from inside the project directory, to fetch the packages to your global python installation.
 
@@ -40,6 +40,8 @@ To setup your python environment follow these steps:
     ```
 
     First it creates the virtual environment, activates it in the terminal, and installs the packages from the `requirements.txt` file to that environment.
+
+    Any subsequent use of the environment must be initialized with the `call venv\Scripts\activate` command when you first open your terminal.
 
 4. To run an example use `python main.py` from any of the project sub-directories.
 
