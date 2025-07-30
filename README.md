@@ -387,7 +387,7 @@ I create my implementation of the FXAA 3.11 version, which I think is the last o
 ![Screenshots](./screenshots/mgl_fxaa_2.png)
 _The `fxaa_3.11` method looks to me to be effective for the cheaper cost and complexity compared to MSAA. Debug in yellow for the edges detected by the FXAA 3.11 method._
 
-This example serves another use for our learning: we can use the post processing shader for more features at a later stage.
+This example serves another use for our learning: we can use the post processing shader for more features later on.
 
 Reading:
 
