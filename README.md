@@ -116,7 +116,7 @@ I focus on BRDF and real time rendering in these materials, which are of a diffe
 
 This illumination calculation arrived much later than Phong, and built as a BRDF despite predating the notation.
 
-Blinn's model is an approximate of Phong shading, which had an internal issue rendering reflected light more than 90 degrees from the view and the reflection vectors, that made the light look 'cut-off'. The approximation to use the half-way vector corrected this flaw, producing a more realistic illumination model.
+Blinn's model is an approximation of Phong shading, which had an internal issue rendering reflected light more than 90 degrees from the view and the reflection vectors, that made the light look 'cut-off'. The approximation to use the half-way vector corrected this flaw, producing a more realistic illumination model.
 
 ![Screenshots](./screenshots/mgl_blinn-phong_1.png)
 ![Screenshots](./screenshots/mgl_blinn-phong_5.png)
@@ -193,15 +193,12 @@ _Point blank flashlight produces a nice effect from the metallic surfaces._
 In summary the Cook-Torrance BRDF combines these components:
 
 -   A diffuse component for scattered, non-directional reflection (e.g., matte surfaces).
-
 -   A specular component for directional, glossy reflections, modeled using micro-facet theory.
 
 Generally, and in this demo, the Cook-Torrance method uses a diffuse Lambertian component and a specular component driven by three terms:
 
 -   Beckmann micro-facet distribution.
-
 -   Fresnel reflectance.
-
 -   Geometry shadowing/masking.
 
 Reading:
@@ -321,11 +318,9 @@ _The illumination properties are working nicely. We can also cast shadows onto t
 
 The ground plane is created from a height map and displaced in the vertex shader. The normals of the ground plane are calculated in the geometry shader and passed to the fragment shader for lighting calculations.
 
-Basic grass in some complex scenes isn't modelled from 3D meshes, but 2D planes called bill-boards.
-
 The grass is created along each point on the ground plane using a geometry shader and a flow map to simulate wind movement. We can use the shader programs to render more complex objects such as grass.
 
-The wind movement on the grass is simulated using a 'flow map', which is a 2D texture that is used to control the movement of the wind. The flow map is used to offset the position of the grass in the geometry shader.
+The wind movement on the grass is simulated using a flow-map, which is a 2D texture that is used to control the movement of the wind. The flow-map is used to offset the position of the grass in the geometry shader.
 
 ![Screenshots](./screenshots/mgl_terrain_2.png)
 _With only local lights on and textures off, we see the pure light on the normals of the billboards._
