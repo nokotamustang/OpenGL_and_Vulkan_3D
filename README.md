@@ -295,7 +295,7 @@ Reading:
 Adding complexity to the occlusion search will give better results. I've tried a variety of ideas in this demo, and have settled it to a cleaned up linear search with several additional steps.
 
 ![Screenshots](./screenshots/mgl_better_disp_1.png)
-_Improved height intersection search that smooths the steeper areas very handily without too much extra overhead._
+_Improved height intersection search that smooths the steeper areas very handily without too much extra overhead. The floor also now has a depth component, which gives an interesting fade off with more distance from the camera._
 
 The method is similar to the linear search but has more areas of work:
 
