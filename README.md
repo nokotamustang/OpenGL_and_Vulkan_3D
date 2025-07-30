@@ -46,7 +46,7 @@ To setup your python environment follow these steps:
 Each project is a standalone example of a 3D rendering technique or feature working with Python 3.12.10. Some projects are combined to create a complex scene. Each project is self-contained and can run independently:
 
 -   Series 1 will follow Blinn-Phong illumination, for basic illumination principles.
--   Series 2 will look at full BRDFs including Cook-Torrance and BRDF workflows; and detail enhance techniques that are work load friendly.
+-   Series 2 will look at full BRDFs including Cook-Torrance and BRDF workflows; and detail enhancements.
 -   Series 3 looks at terrain concepts such as height maps, geometry shaders for billboards, and chunking.
 -   Series 4 looks at post-processing and other techniques to enhance the visual fidelity, such as anti-aliasing.
 -   Series 5 for environment effects from simple skybox cube-maps to environment mapping, and volumetric clouds.
