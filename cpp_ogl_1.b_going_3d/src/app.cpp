@@ -138,13 +138,13 @@ void App::run() {
 
     // Gets ID of uniform called "scale"
     GLuint uniID = glGetUniformLocation(default_shader.ID, "scale");
-    string textures_path = "../../.../textures/";
+    string textures_path = "../../../../textures/";
 #ifdef COMPILE_RELEASE
     textures_path = "textures/";
 #endif
 
     // Texture
-    string texture_file = textures_path + "brick_wall.png";
+    string texture_file = textures_path + "test.png";
     Texture texture_0(texture_file.c_str(), GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
     texture_0.texUnit(default_shader, "tex0", 0);
     print("texture loaded from '{}'", texture_file);
