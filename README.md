@@ -707,7 +707,7 @@ I have also added code to center the window in the screen. Note that the code is
 
 This demo is my clean and modern implementation of demo 07 from: <https://www.youtube.com/playlist?list=PLPaoO-vpZnumdcb4tZc4x5Q-v7CkrQ6M->.
 
-Victor Gordon's youtube and github repo are excellent reworking of the mind-blowing tutorials from LearnOpenGL: <https://learnopengl.com/Getting-started/Textures>.
+Victor Gordon's youtube and github repo are a reworking of the excellent tutorials from LearnOpenGL: <https://learnopengl.com/Getting-started/Textures>.
 
 In this demo we render a texture onto a 3D mesh, we write a shader to render the texture.
 
