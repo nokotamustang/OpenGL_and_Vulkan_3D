@@ -1,4 +1,4 @@
-#define GLFW_INCLUDE_NONE  // This allows the gl.h import to happen afterwards
+#define GLFW_INCLUDE_NONE  // Define this once per project
 #include <GLFW/glfw3.h>
 //
 #define GLAD_GL_IMPLEMENTATION  // Define this once per project
